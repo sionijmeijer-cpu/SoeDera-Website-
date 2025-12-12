@@ -4,6 +4,14 @@ import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
 
 export default function Blog() {
+  return (
+    <div className="pt-[128px]">
+      <BlogContent />
+    </div>
+  );
+}
+
+function BlogContent() {
   const blogPosts = [
     {
       id: '1',

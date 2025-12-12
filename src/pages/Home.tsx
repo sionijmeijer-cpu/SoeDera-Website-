@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div className="pt-[104px]">
+    <div className="pt-[128px]">
       {/* Hero Section */}
       <section 
         className="relative min-h-[600px] flex items-center justify-center bg-cover bg-center"
@@ -31,13 +31,18 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Image */}
+            {/* Video */}
             <div className="order-2 md:order-1">
-              <img
-                src="/images/professional-tablet-meeting.png"
-                alt="Professional using tablet"
+              <video
+                src="https://i.imgur.com/orYq9OS.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="rounded-lg shadow-2xl w-full h-auto"
-              />
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
 
             {/* Content */}
@@ -70,15 +75,18 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Areas of Expertise</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We provide comprehensive solutions tailored to your organization's needs
+              We provide customized consultancy and strategic solutions in
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Service 1 */}
-            <div className="bg-gray-50 rounded-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <Link 
+              to="/services/document-management"
+              className="bg-gray-50 rounded-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+            >
               <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -88,33 +96,39 @@ export default function Home() {
               <p className="text-gray-600 leading-relaxed">
                 Streamline your document workflows with our advanced management solutions, ensuring efficiency and compliance.
               </p>
-            </div>
+            </Link>
 
             {/* Service 2 */}
-            <div className="bg-gray-50 rounded-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <Link 
+              to="/services/rds-concepts"
+              className="bg-gray-50 rounded-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+            >
               <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Building Information Modelling</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">RDS Concepts</h3>
               <p className="text-gray-600 leading-relaxed">
-                Leverage BIM technology to enhance collaboration and project delivery across your organization.
+                Implement Reference Designation Systems for better organization and standardization across your projects.
               </p>
-            </div>
+            </Link>
 
             {/* Service 3 */}
-            <div className="bg-gray-50 rounded-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <Link 
+              to="/services/information-management"
+              className="bg-gray-50 rounded-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+            >
               <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Product Development</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Information Management</h3>
               <p className="text-gray-600 leading-relaxed">
-                Transform your ideas into reality with our expert product development and engineering services.
+                Optimize how your organization handles and leverages information for better decision-making.
               </p>
-            </div>
+            </Link>
           </div>
 
           <div className="text-center mt-12">

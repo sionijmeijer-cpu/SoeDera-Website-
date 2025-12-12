@@ -2,6 +2,14 @@ import { FileText, FolderKanban, Package, Database, Network, Building2 } from 'l
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 
 export default function Services() {
+  return (
+    <div className="pt-[128px]">
+      <ServicesContent />
+    </div>
+  );
+}
+
+function ServicesContent() {
   const services = [
     {
       icon: FileText,

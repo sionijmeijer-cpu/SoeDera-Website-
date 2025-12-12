@@ -1,18 +1,19 @@
 import { useState } from 'react';
-import { Menu, X, Mail } from 'lucide-react';
+import { Menu, X, Mail, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
 
-  const navItems = [
-    { name: 'HOME', path: '/' },
-    { name: 'SERVICES', path: '/services' },
-    { name: 'BLOG', path: '/blog' },
-    { name: 'ABOUT US', path: '/about' },
+  const services = [
+    { name: 'Document Management', path: '/services/document-management' },
+    { name: 'RDS Concepts', path: '/services/rds-concepts' },
+    { name: 'Information Management', path: '/services/information-management' },
+    { name: 'Product Development', path: '/services/product-development' },
   ];
 
   return (
@@ -41,30 +42,80 @@ export default function Header() {
       {/* Main navigation */}
       <nav className="bg-gray-900 text-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-24">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img src="https://i.imgur.com/r2HbYJj.png" alt="SØDERA" className="h-14 w-auto object-contain" />
+              <img src="https://i.imgur.com/r2HbYJj.png" alt="SØDERA" className="h-20 w-auto object-contain" />
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`px-4 py-2 text-sm font-medium transition-colors ${
-                    isActive(item.path)
+              <Link
+                to="/"
+                className={`px-4 py-2 text-base font-medium transition-colors ${
+                  isActive('/')
+                    ? 'text-white'
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                HOME
+              </Link>
+              
+              {/* Services Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
+                <button
+                  className={`px-4 py-2 text-base font-medium transition-colors flex items-center gap-1 ${
+                    location.pathname.startsWith('/services')
                       ? 'text-white'
                       : 'text-gray-300 hover:text-white'
                   }`}
                 >
-                  {item.name}
-                </Link>
-              ))}
+                  SERVICES
+                  <ChevronDown size={16} className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isServicesOpen && (
+                  <div className="absolute top-full left-0 mt-0 w-64 bg-white text-gray-900 shadow-xl rounded-b-lg overflow-hidden">
+                    {services.map((service) => (
+                      <Link
+                        key={service.path}
+                        to={service.path}
+                        className="block px-4 py-3 hover:bg-blue-50 transition-colors border-b border-gray-100 last:border-b-0"
+                      >
+                        {service.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <Link
+                to="/blog"
+                className={`px-4 py-2 text-base font-medium transition-colors ${
+                  isActive('/blog')
+                    ? 'text-white'
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                BLOG
+              </Link>
+              <Link
+                to="/about"
+                className={`px-4 py-2 text-base font-medium transition-colors ${
+                  isActive('/about')
+                    ? 'text-white'
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                ABOUT US
+              </Link>
               <Link
                 to="/contact"
-                className="ml-4 px-6 py-2 bg-blue-600 text-white rounded text-sm font-medium hover:bg-blue-700 transition-colors"
+                className="ml-4 px-6 py-2 bg-blue-600 text-white rounded text-base font-medium hover:bg-blue-700 transition-colors"
               >
                 Contact us
               </Link>
@@ -84,20 +135,55 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden bg-gray-800">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                    isActive(item.path)
-                      ? 'bg-gray-900 text-white'
-                      : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              <Link
+                to="/"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  isActive('/')
+                    ? 'bg-gray-900 text-white'
+                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                }`}
+              >
+                HOME
+              </Link>
+              
+              {/* Mobile Services Submenu */}
+              <div className="space-y-1">
+                <div className="px-3 py-2 text-base font-medium text-gray-400">SERVICES</div>
+                {services.map((service) => (
+                  <Link
+                    key={service.path}
+                    to={service.path}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block pl-6 pr-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"
+                  >
+                    {service.name}
+                  </Link>
+                ))}
+              </div>
+
+              <Link
+                to="/blog"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  isActive('/blog')
+                    ? 'bg-gray-900 text-white'
+                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                }`}
+              >
+                BLOG
+              </Link>
+              <Link
+                to="/about"
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  isActive('/about')
+                    ? 'bg-gray-900 text-white'
+                    : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                }`}
+              >
+                ABOUT US
+              </Link>
               <Link
                 to="/contact"
                 onClick={() => setIsMenuOpen(false)}

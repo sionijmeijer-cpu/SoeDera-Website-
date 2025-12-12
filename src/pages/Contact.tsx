@@ -6,6 +6,14 @@ import { Textarea } from '../components/ui/textarea';
 import { useState } from 'react';
 
 export default function Contact() {
+  return (
+    <div className="pt-[128px]">
+      <ContactContent />
+    </div>
+  );
+}
+
+function ContactContent() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',

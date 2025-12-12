@@ -2,6 +2,14 @@ import { Target, Eye, Award, Linkedin } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 
 export default function About() {
+  return (
+    <div className="pt-[128px]">
+      <AboutContent />
+    </div>
+  );
+}
+
+function AboutContent() {
   const founders = [
     {
       name: 'Thomas Andersen',
