@@ -108,7 +108,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">RDS Concepts</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Reference Designation System Concepts</h3>
               <p className="text-gray-600 leading-relaxed">
                 Implement Reference Designation Systems for better organization and standardization across your projects.
               </p>
@@ -143,20 +143,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="py-20 bg-blue-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Let's work together to improve your organization's information management and operational efficiency.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-blue-900 rounded text-lg font-semibold hover:bg-gray-100 transition-all duration-300"
-          >
-            Get in Touch
-            <ArrowRight size={20} />
-          </Link>
+      {/* Who We Work With Section */}
+      <section className="py-24 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-purple-200">
+              Who We Work With
+            </h2>
+            <p className="text-xl text-blue-200 max-w-2xl mx-auto">
+              Trusted by organizations worldwide to deliver excellence
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {[
+              { text: "Organizations and businesses of all sizes", icon: "🏢", delay: "0ms" },
+              { text: "Decision-makers (CEOs, CTOs, CIOs, COOs, Project Managers)", icon: "👔", delay: "100ms" },
+              { text: "Professionals in document & asset management", icon: "📂", delay: "200ms" },
+              { text: "Startups and scaling businesses", icon: "🚀", delay: "300ms" },
+              { text: "Global enterprises & industry leaders", icon: "🌍", delay: "400ms" }
+            ].map((item, index) => (
+              <div 
+                key={index} 
+                className="group flex items-start space-x-4 bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 border border-white/20 hover:border-blue-300 hover:bg-white/20 animate-fade-in"
+                style={{ animationDelay: item.delay }}
+              >
+                <div className="flex-shrink-0">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl flex items-center justify-center text-2xl transform group-hover:rotate-12 transition-transform duration-300 shadow-lg">
+                    {item.icon}
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center mb-2">
+                    <div className="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-white font-bold text-xs">✓</span>
+                    </div>
+                  </div>
+                  <span className="text-blue-50 text-lg font-medium leading-relaxed">{item.text}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Call to action */}
+          <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: '500ms' }}>
+            <Link 
+              to="/contact"
+              className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 hover:from-blue-600 hover:to-purple-700"
+            >
+              <span>Partner With Us Today</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

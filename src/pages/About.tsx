@@ -12,16 +12,18 @@ export default function About() {
 function AboutContent() {
   const founders = [
     {
-      name: 'Thomas Andersen',
-      role: 'Co-Founder & CEO',
-      bio: 'With 25+ years of experience in organizational transformation and enterprise consulting, Thomas leads SøDera\'s strategic vision. His expertise spans document management, process optimization, and digital transformation across multiple industries.',
-      linkedin: '#',
+      name: 'Søren Christensen',
+      role: 'Co-founder & CEO',
+      bio: 'Søren is an expert in Reference Designation Systems, empowering teams to navigate complexity with confidence.',
+      linkedin: 'https://linkedin.com/in/soren-christensen',
+      image: '/images/soren-christensen.png',
     },
     {
-      name: 'Maria Bergström',
-      role: 'Co-Founder & CTO',
-      bio: 'Maria brings deep technical expertise in BIM, asset management, and information systems. With a background in engineering and information architecture, she drives innovation in solution design and technical excellence for our clients.',
-      linkedin: '#',
+      name: 'Sylvia Awoudu',
+      role: 'Co-founder & COO',
+      bio: 'Sylvia has over a decade of experience in document and information management and product development, bridging strategy and execution to enable innovation while maintaining control and helping companies innovate confidently.',
+      linkedin: 'https://linkedin.com/in/sylvia-awoudu',
+      image: '/images/sylvia-awoudu.png',
     },
   ];
 
@@ -158,33 +160,40 @@ function AboutContent() {
           </Card>
         </div>
 
-        {/* Leadership Team */}
+        {/* Meet Our Founders */}
         <div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center mb-8 sm:mb-12">
-            Leadership Team
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+              Meet Our Founders
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600">
+              The visionaries behind SøDera
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             {founders.map((founder, index) => (
-              <Card key={index} className="border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle className="text-xl sm:text-2xl mb-1">{founder.name}</CardTitle>
-                      <p className="text-sm sm:text-base text-orange-600 font-medium">{founder.role}</p>
-                    </div>
-                    <a
-                      href={founder.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-blue-100 p-2 sm:p-3 rounded-lg hover:bg-blue-200 transition-colors duration-200"
-                    >
-                      <Linkedin className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
-                    </a>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{founder.bio}</p>
-                </CardContent>
+              <Card key={index} className="border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 flex flex-col items-center">
+                  <img 
+                    src={founder.image} 
+                    alt={founder.name}
+                    className="w-32 h-32 sm:w-40 sm:h-40 rounded-lg object-cover shadow-md mb-6"
+                  />
+                  <CardTitle className="text-xl sm:text-2xl text-center mb-1">{founder.name}</CardTitle>
+                  <p className="text-sm sm:text-base text-orange-600 font-medium text-center mb-4">{founder.role}</p>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed text-center mb-6">
+                    {founder.bio}
+                  </p>
+                  <a
+                    href={founder.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition-colors duration-200 text-sm sm:text-base font-medium"
+                  >
+                    <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
+                    Connect on LinkedIn
+                  </a>
+                </div>
               </Card>
             ))}
           </div>
