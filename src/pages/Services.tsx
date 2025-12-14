@@ -1,4 +1,4 @@
-import { FileText, FolderKanban, Package, Database, Network, Building2 } from 'lucide-react';
+import { FileText, Network, Building2, Package, Database, FolderKanban } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 
 export default function Services() {
@@ -15,39 +15,51 @@ function ServicesContent() {
       icon: FileText,
       title: 'Document Management',
       description: 'Streamline your document lifecycle with comprehensive solutions for creation, storage, retrieval, and archival. We implement industry-leading systems that ensure compliance, enhance collaboration, and reduce administrative overhead.',
+      link: '/services/document-management'
     },
     {
-      icon: FolderKanban,
-      title: 'Project Management',
-      description: 'Expert project management services that deliver results on time and within budget. Our methodologies combine traditional PMI frameworks with agile practices to suit your organizational needs and project complexity.',
+      icon: Network,
+      title: 'Reference Designation Systems (RDS)',
+      description: 'Implement robust reference designation systems that ensure consistency, traceability, and interoperability across your organization. We specialize in ISO/IEC standards and industry-specific naming conventions.',
+      link: '/services/rds'
+    },
+    {
+      icon: Building2,
+      title: 'Building Information Modelling (BIM) Management',
+      description: 'Leverage BIM technology to improve design coordination, reduce errors, and enhance project delivery. Our BIM services include implementation planning, training, and ongoing support for construction and facility management projects.',
+      link: '/services/bim-management'
     },
     {
       icon: Package,
       title: 'Product Development',
       description: 'From concept to launch, we guide your product development journey. Our multidisciplinary approach integrates market research, design thinking, prototyping, and go-to-market strategies to bring innovative products to life.',
+      link: '/services/product-development'
     },
     {
       icon: Database,
       title: 'Asset Management',
       description: 'Maximize the value and performance of your physical and digital assets. Our asset management solutions cover lifecycle planning, maintenance optimization, risk assessment, and performance tracking.',
+      link: '/services/asset-management'
     },
     {
-      icon: Network,
-      title: 'Reference Designation System Management',
-      description: 'Implement robust reference designation systems that ensure consistency, traceability, and interoperability across your organization. We specialize in ISO/IEC standards and industry-specific naming conventions.',
-    },
-    {
-      icon: Building2,
-      title: 'Building Information Modelling (BIM)',
-      description: 'Leverage BIM technology to improve design coordination, reduce errors, and enhance project delivery. Our BIM services include implementation planning, training, and ongoing support for construction and facility management projects.',
+      icon: FolderKanban,
+      title: 'Project Management',
+      description: 'Expert project management services that deliver results on time and within budget. Our methodologies combine traditional PMI frameworks with agile practices to suit your organizational needs and project complexity.',
+      link: '/services/project-management'
     },
   ];
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-orange-600 to-blue-600 text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative text-white py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8" style={{
+        backgroundImage: 'url(https://i.imgur.com/zE9VdRs.jpeg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}>
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             Our Services
           </h1>
@@ -64,22 +76,23 @@ function ServicesContent() {
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <Card 
-                  key={index}
-                  className="hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-gray-100"
-                >
-                  <CardHeader>
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                      <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-orange-600" />
-                    </div>
-                    <CardTitle className="text-xl sm:text-2xl text-gray-900">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                      {service.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                <a href={service.link} key={index}>
+                  <Card 
+                    className="hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-gray-100 h-full cursor-pointer"
+                  >
+                    <CardHeader>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-orange-600" />
+                      </div>
+                      <CardTitle className="text-xl sm:text-2xl text-gray-900">{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                        {service.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </a>
               );
             })}
           </div>
@@ -88,7 +101,7 @@ function ServicesContent() {
 
       {/* Why Choose Us Section */}
       <section className="bg-gray-50 py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6 sm:mb-8">
             Why Choose SøDera?
           </h2>

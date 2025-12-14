@@ -15,15 +15,15 @@ function AboutContent() {
       name: 'Søren Christensen',
       role: 'Co-founder & CEO',
       bio: 'Søren is an expert in Reference Designation Systems, empowering teams to navigate complexity with confidence.',
-      linkedin: 'https://linkedin.com/in/soren-christensen',
-      image: '/images/soren-christensen.png',
+      linkedin: 'https://www.linkedin.com/in/s%C3%B8ren-lemvigh/',
+      image: 'https://i.imgur.com/8MpdRPm.jpeg',
     },
     {
       name: 'Sylvia Awoudu',
       role: 'Co-founder & COO',
       bio: 'Sylvia has over a decade of experience in document and information management and product development, bridging strategy and execution to enable innovation while maintaining control and helping companies innovate confidently.',
-      linkedin: 'https://linkedin.com/in/sylvia-awoudu',
-      image: '/images/sylvia-awoudu.png',
+      linkedin: 'https://www.linkedin.com/in/sylvia-awoudu-53480262/',
+      image: 'https://i.imgur.com/AkHCf57.jpeg',
     },
   ];
 

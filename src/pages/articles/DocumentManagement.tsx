@@ -177,9 +177,25 @@ export default function DocumentManagementArticle() {
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Share this article</h3>
               <div className="flex gap-4">
-                <Button variant="outline" size="sm" className="text-gray-600">LinkedIn</Button>
-                <Button variant="outline" size="sm" className="text-gray-600">Twitter</Button>
-                <Button variant="outline" size="sm" className="text-gray-600">Copy Link</Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="text-gray-600 hover:text-orange-600"
+                  onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank')}
+                >
+                  LinkedIn
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="text-gray-600 hover:text-orange-600"
+                  onClick={() => {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert('Link copied to clipboard!');
+                  }}
+                >
+                  Copy Link
+                </Button>
               </div>
             </div>
             <Button

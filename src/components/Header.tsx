@@ -10,16 +10,19 @@ export default function Header() {
   const isActive = (path: string) => location.pathname === path;
 
   const services = [
+    { name: 'All Services', path: '/services' },
     { name: 'Document Management', path: '/services/document-management' },
-    { name: 'RDS Concepts', path: '/services/rds-concepts' },
-    { name: 'Information Management', path: '/services/information-management' },
+    { name: 'Reference Designation Systems (RDS)', path: '/services/rds' },
+    { name: 'Building Information Modelling (BIM) Management', path: '/services/bim-management' },
     { name: 'Product Development', path: '/services/product-development' },
+    { name: 'Asset Management', path: '/services/asset-management' },
+    { name: 'Project Management', path: '/services/project-management' },
   ];
 
   return (
     <header className="w-full fixed top-0 left-0 z-50">
       {/* Top bar with contact info */}
-      <div className="bg-blue-900 text-white py-2">
+      <div className="bg-slate-800 text-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end items-center gap-4 text-sm">
           <a href="mailto:info@soedera.eu" className="flex items-center gap-2 hover:text-blue-300 transition-colors">
             <Mail size={16} />
@@ -45,7 +48,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-24">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img src="https://i.imgur.com/r2HbYJj.png" alt="SØDERA" className="h-20 w-auto object-contain" />
+              <img src="https://i.imgur.com/r2HbYJj.png" alt="SØDERA" className="h-24 w-auto object-contain" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -84,7 +87,7 @@ export default function Header() {
                       <Link
                         key={service.path}
                         to={service.path}
-                        className="block px-4 py-3 hover:bg-blue-50 transition-colors border-b border-gray-100 last:border-b-0"
+                        className="block px-4 py-3 hover:bg-slate-50 transition-colors border-b border-gray-100 last:border-b-0"
                       >
                         {service.name}
                       </Link>
@@ -115,7 +118,7 @@ export default function Header() {
               </Link>
               <Link
                 to="/contact"
-                className="ml-4 px-6 py-2 bg-blue-600 text-white rounded text-base font-medium hover:bg-blue-700 transition-colors"
+                className="ml-4 px-6 py-2 bg-slate-700 text-white rounded text-base font-medium hover:bg-slate-600 transition-colors"
               >
                 Contact us
               </Link>
@@ -187,7 +190,7 @@ export default function Header() {
               <Link
                 to="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="block px-3 py-2 bg-blue-600 text-white rounded-md text-base font-medium hover:bg-blue-700 transition-colors"
+                className="block px-3 py-2 bg-slate-700 text-white rounded-md text-base font-medium hover:bg-slate-600 transition-colors"
               >
                 Contact us
               </Link>

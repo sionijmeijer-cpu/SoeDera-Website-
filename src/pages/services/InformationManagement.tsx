@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FolderOpen, CheckCircle, Shield, ArrowRight } from 'lucide-react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+
 
 export default function InformationManagement() {
   return (
@@ -30,14 +29,14 @@ function InformationManagementContent() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Information Management</h1>
-            <p className="text-xl text-blue-100">
+      <section className="pt-32 pb-16 bg-cover bg-center bg-no-repeat relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=600&fit=crop')"}}>
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl bg-black/30 backdrop-blur-md rounded-lg p-8 border border-white/10">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Building Information Modelling (BIM) Management</h1>
+            <p className="text-xl text-black/90">
               Transform information into strategic assets with comprehensive information management solutions
             </p>
           </div>
@@ -165,7 +164,7 @@ function InformationManagementContent() {
         </div>
       </section>
 
-      <Footer />
+
     </div>
   );
 }

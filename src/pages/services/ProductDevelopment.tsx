@@ -1,7 +1,5 @@
+import { ArrowRight, CheckCircle, Lightbulb, Rocket, Target, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Rocket, CheckCircle, Shield, ArrowRight } from 'lucide-react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 
 export default function ProductDevelopment() {
   return (
@@ -13,32 +11,31 @@ export default function ProductDevelopment() {
 
 function ProductDevelopmentContent() {
   const benefits = [
-    'Accelerated time-to-market for new products',
+    'Faster time-to-market for new products',
     'Reduced development costs and risks',
-    'Enhanced product quality and reliability',
-    'Improved collaboration across teams',
-    'Streamlined development workflows',
-    'Data-driven product decisions',
+    'Enhanced product quality and performance',
+    'Better alignment with market needs',
+    'Increased innovation and competitiveness',
+    'Improved cross-functional collaboration',
   ];
 
   const standards = [
     { name: 'ISO 9001', description: 'Quality Management Systems' },
-    { name: 'ISO/IEC 15288', description: 'System Life Cycle Processes' },
-    { name: 'Agile/Scrum', description: 'Iterative Development Framework' },
-    { name: 'DevOps', description: 'Continuous Integration & Delivery' },
+    { name: 'Stage-Gate', description: 'Product Development Process' },
+    { name: 'Agile', description: 'Iterative Development Methodology' },
+    { name: 'Design Thinking', description: 'User-Centered Innovation' },
   ];
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-      
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Product Development</h1>
-            <p className="text-xl text-blue-100">
-              Bring innovative products to market faster with our expert development services
+      <section className="pt-32 pb-16 bg-cover bg-center bg-no-repeat relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&h=600&fit=crop')"}}>
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl bg-black/30 backdrop-blur-md rounded-lg p-8 border border-white/10">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Product Development</h1>
+            <p className="text-xl text-white/90">
+              Transform your ideas into market-ready products with our comprehensive product development services, from concept through launch and beyond.
             </p>
           </div>
         </div>
@@ -50,37 +47,37 @@ function ProductDevelopmentContent() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Innovation Through Expertise
+                Professional Product Development
               </h2>
               <p className="text-lg text-gray-700 mb-4">
-                Our Product Development services help organizations transform ideas into market-ready products through systematic, efficient, and innovative development processes. We combine technical expertise with industry best practices to deliver products that meet market needs and exceed customer expectations.
+                Our product development services guide you through every stage of bringing new products to market, from initial concept and design through prototyping, testing, and launch.
               </p>
               <p className="text-lg text-gray-700 mb-4">
-                From initial concept and requirements analysis to design, development, testing, and deployment, we provide comprehensive support throughout the entire product lifecycle. Our team leverages modern methodologies, cutting-edge technologies, and proven frameworks to ensure successful product delivery.
+                We combine innovative thinking with rigorous processes to ensure your products meet market needs while staying within budget and timeline constraints.
               </p>
               <p className="text-lg text-gray-700">
-                Whether you're developing software applications, industrial systems, or digital solutions, we bring the expertise and experience needed to navigate complex development challenges and deliver products that drive business value.
+                Whether you're developing physical products, software solutions, or hybrid offerings, our expertise helps you navigate the complexities of modern product development.
               </p>
             </div>
             <div className="bg-blue-50 rounded-lg p-8">
-              <Rocket className="w-16 h-16 text-blue-600 mb-6" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Development Excellence</h3>
+              <Lightbulb className="w-16 h-16 text-blue-600 mb-6" />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Product Development Matters</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <span>Requirements analysis and product strategy</span>
+                  <span>Structured approach from idea to market</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <span>Agile development with iterative delivery</span>
+                  <span>Risk mitigation through validation</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <span>Quality assurance and testing strategies</span>
+                  <span>Optimized resource allocation</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <span>Deployment and maintenance support</span>
+                  <span>Market-driven innovation</span>
                 </li>
               </ul>
             </div>
@@ -94,7 +91,7 @@ function ProductDevelopmentContent() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Key Benefits</h2>
             <p className="text-xl text-gray-600">
-              Drive innovation and market success with our product development expertise
+              Discover how our product development services accelerate innovation
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -108,14 +105,14 @@ function ProductDevelopmentContent() {
         </div>
       </section>
 
-      {/* Compliance & Standards */}
+      {/* Methodologies */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <Shield className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Compliance & Standards</h2>
+            <Rocket className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Methodologies & Frameworks</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our development processes follow industry-leading standards and methodologies
+              We leverage proven methodologies to ensure successful product development outcomes
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -127,12 +124,12 @@ function ProductDevelopmentContent() {
             ))}
           </div>
           <div className="mt-12 bg-blue-50 rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Quality-Driven Development</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Approach</h3>
             <p className="text-lg text-gray-700 mb-4">
-              Quality is at the core of our development approach. We implement rigorous quality assurance processes, automated testing frameworks, and continuous integration practices to ensure products meet the highest standards of reliability, performance, and security.
+              We tailor our product development approach to your specific industry, market, and organizational context, combining proven methodologies with innovative thinking.
             </p>
             <p className="text-lg text-gray-700">
-              Our adherence to ISO standards and modern development methodologies ensures your products are built to last, scale efficiently, and maintain competitive advantage in the marketplace.
+              Our multidisciplinary teams bring together expertise in engineering, design, market research, and project management to deliver products that succeed in the market.
             </p>
           </div>
         </div>
@@ -145,7 +142,7 @@ function ProductDevelopmentContent() {
             Ready to Bring Your Product Vision to Life?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Partner with us to develop innovative products that delight customers and drive business growth.
+            Let's discuss how our product development expertise can accelerate your innovation journey.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -164,8 +161,6 @@ function ProductDevelopmentContent() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

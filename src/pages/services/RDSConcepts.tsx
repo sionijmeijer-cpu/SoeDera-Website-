@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Database, CheckCircle, Shield, ArrowRight } from 'lucide-react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+
 
 export default function RDSConcepts() {
   return (
@@ -22,22 +21,21 @@ function RDSConceptsContent() {
   ];
 
   const standards = [
-    { name: 'ISO 8000', description: 'Data Quality Standards' },
-    { name: 'ISO 22745', description: 'Industrial Automation Systems' },
-    { name: 'ISO/IEC 11179', description: 'Metadata Registries' },
-    { name: 'PAS 1880', description: 'Asset Information Model' },
+    { name: 'ISO/IEC 81346 Series', description: 'Reference Designation System (RDS)' },
+    { name: 'IEC 81355', description: 'Document Kinds and Reference Designation' },
+    { name: 'IEC 61082-1', description: 'Preparation of documents used in electrotechnology - Part 1: Rules' },
   ];
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Reference Designation System (RDS) Concepts</h1>
-            <p className="text-xl text-blue-100">
+      <section className="pt-32 pb-16 bg-cover bg-center bg-no-repeat relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=600&fit=crop')"}}>
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl bg-black/30 backdrop-blur-md rounded-lg p-8 border border-white/10">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Reference Designation System (RDS)</h1>
+            <p className="text-xl text-black/90">
               Master your data with standardized reference designation systems that drive operational excellence
             </p>
           </div>
@@ -50,7 +48,7 @@ function RDSConceptsContent() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Unified Reference Data Management
+                Reference Designation System
               </h2>
               <p className="text-lg text-gray-700 mb-4">
                 Reference Designation Systems (RDS) provide a standardized framework for identifying and classifying assets, equipment, and systems across your organization. Our RDS solutions ensure consistency, traceability, and interoperability throughout your asset lifecycle.
@@ -118,11 +116,11 @@ function RDSConceptsContent() {
               Our RDS solutions are built on internationally recognized standards ensuring global compatibility and compliance
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {standards.map((standard, index) => (
-              <div key={index} className="bg-white border-2 border-blue-100 rounded-lg p-6 hover:border-blue-600 transition-colors">
-                <h3 className="text-xl font-bold text-blue-600 mb-2">{standard.name}</h3>
-                <p className="text-gray-700">{standard.description}</p>
+              <div key={index} className="bg-white border-2 border-slate-200 rounded-lg p-8 hover:border-slate-400 hover:shadow-lg transition-all duration-300">
+                <h3 className="text-xl font-bold text-slate-700 mb-3">{standard.name}</h3>
+                <p className="text-gray-700 text-base leading-relaxed">{standard.description}</p>
               </div>
             ))}
           </div>
@@ -165,7 +163,7 @@ function RDSConceptsContent() {
         </div>
       </section>
 
-      <Footer />
+
     </div>
   );
 }

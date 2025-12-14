@@ -1,41 +1,41 @@
-import { ArrowRight, CheckCircle, FileText, Shield, Clock, Database } from 'lucide-react';
+import { ArrowRight, CheckCircle, Target, Users, Calendar, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-export default function DocumentManagement() {
+export default function ProjectManagement() {
   return (
     <div className="pt-[128px]">
-      <DocumentManagementContent />
+      <ProjectManagementContent />
     </div>
   );
 }
 
-function DocumentManagementContent() {
+function ProjectManagementContent() {
   const benefits = [
-    'Improved document accessibility and retrieval',
-    'Enhanced version control and audit trails',
-    'Reduced storage costs and physical space',
-    'Better compliance and regulatory adherence',
-    'Increased collaboration and productivity',
-    'Secure document sharing and access control',
+    'Improved project delivery and on-time completion',
+    'Better resource allocation and utilization',
+    'Enhanced team collaboration and communication',
+    'Reduced project costs and budget overruns',
+    'Increased stakeholder satisfaction',
+    'Risk mitigation and issue prevention',
   ];
 
   const standards = [
-    { name: 'ISO 9001', description: 'Quality Management Systems' },
-    { name: 'ISO 27001', description: 'Information Security Management' },
-    { name: 'GDPR', description: 'Data Protection Compliance' },
-    { name: 'ISO 15489', description: 'Records Management Standard' },
+    { name: 'PMBOK', description: 'Project Management Body of Knowledge' },
+    { name: 'Agile/Scrum', description: 'Iterative Project Management' },
+    { name: 'PRINCE2', description: 'Structured Project Management' },
+    { name: 'ISO 21500', description: 'Project Management Guidelines' },
   ];
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-cover bg-center bg-no-repeat relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1200&h=600&fit=crop')"}}>
+      <section className="pt-32 pb-16 bg-cover bg-center bg-no-repeat relative" style={{backgroundImage: "url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop')"}}>
         <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl bg-black/30 backdrop-blur-md rounded-lg p-8 border border-white/10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Document Management</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Project Management</h1>
             <p className="text-xl text-white/90">
-              Streamline your document workflows with our comprehensive document management solutions, ensuring secure storage, easy access, and full compliance.
+              Deliver projects on time, within budget, and exceeding expectations with our proven project management methodologies and experienced team.
             </p>
           </div>
         </div>
@@ -47,37 +47,37 @@ function DocumentManagementContent() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Professional Document Management
+                Professional Project Management
               </h2>
               <p className="text-lg text-gray-700 mb-4">
-                Our document management services help organizations efficiently organize, store, track, and manage digital documents throughout their lifecycle.
+                Our project management services ensure your projects are delivered successfully, meeting all objectives while managing scope, schedule, budget, and quality.
               </p>
               <p className="text-lg text-gray-700 mb-4">
-                We implement robust systems that improve document accessibility, enhance collaboration, and ensure compliance with industry regulations.
+                We combine industry best practices with tailored approaches to meet your organization's unique needs and deliver exceptional results.
               </p>
               <p className="text-lg text-gray-700">
-                From digitization to long-term archival, we provide end-to-end document management solutions tailored to your business needs.
+                From initiation through closure, we provide comprehensive project management support that drives success and maximizes business value.
               </p>
             </div>
             <div className="bg-blue-50 rounded-lg p-8">
-              <FileText className="w-16 h-16 text-blue-600 mb-6" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Document Management Matters</h3>
+              <Target className="w-16 h-16 text-blue-600 mb-6" />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Project Management Matters</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <span>Instant access to critical documents</span>
+                  <span>Meet project objectives and deliverables</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <span>Enhanced security and access control</span>
+                  <span>Control project scope, schedule, and budget</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <span>Improved regulatory compliance</span>
+                  <span>Manage risks and prevent issues</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                  <span>Reduced operational costs</span>
+                  <span>Maximize team productivity and satisfaction</span>
                 </li>
               </ul>
             </div>
@@ -91,7 +91,7 @@ function DocumentManagementContent() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Key Benefits</h2>
             <p className="text-xl text-gray-600">
-              Discover how our document management solutions drive business value
+              Discover how our project management solutions drive business value
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -105,14 +105,14 @@ function DocumentManagementContent() {
         </div>
       </section>
 
-      {/* Standards & Compliance */}
+      {/* Standards & Methodologies */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <Shield className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Standards & Compliance</h2>
+            <Target className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Standards & Methodologies</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We ensure your document management systems meet industry standards and regulatory requirements
+              We leverage proven project management frameworks and methodologies to ensure consistent success
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -126,10 +126,10 @@ function DocumentManagementContent() {
           <div className="mt-12 bg-blue-50 rounded-lg p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Approach</h3>
             <p className="text-lg text-gray-700 mb-4">
-              We implement document management solutions that combine cutting-edge technology with proven methodologies to ensure maximum efficiency and security.
+              We tailor our project management approach to your specific needs, whether you prefer traditional waterfall methodologies, agile frameworks, or hybrid approaches.
             </p>
             <p className="text-lg text-gray-700">
-              Our experts work closely with your team to understand your specific requirements and design systems that integrate seamlessly with your existing workflows.
+              Our experienced project managers bring expertise across industries and project types, ensuring your projects benefit from proven best practices and lessons learned.
             </p>
           </div>
         </div>
@@ -139,10 +139,10 @@ function DocumentManagementContent() {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Document Management?
+            Ready to Improve Your Project Delivery?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Let's discuss how our document management solutions can improve efficiency and compliance.
+            Let's discuss how our project management solutions can drive success and maximize business value.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

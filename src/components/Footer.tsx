@@ -1,4 +1,4 @@
-import { Linkedin, Youtube, Mail } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -15,12 +15,10 @@ export default function Footer() {
               Connecting organisations with trained resources and experts to drive operational efficiency and success.
             </p>
             <div className="flex space-x-4">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/company/106622271/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <Youtube size={20} />
-              </a>
+
               <a href="mailto:info@soedera.eu" className="text-gray-400 hover:text-white transition-colors">
                 <Mail size={20} />
               </a>
@@ -31,11 +29,7 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Quick Links</h3>
             <ul className="space-y-2 text-sm sm:text-base">
-              <li>
-                <Link to="/" className="hover:text-white transition-colors">
-                  Home
-                </Link>
-              </li>
+
               <li>
                 <Link to="/services" className="hover:text-white transition-colors">
                   Services
@@ -59,24 +53,34 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Services</h3>
             <ul className="space-y-2 text-sm sm:text-base">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <Link to="/services/document-management" className="hover:text-white transition-colors">
                   Document Management
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Reference Designation
-                </a>
+                <Link to="/services/rds" className="hover:text-white transition-colors">
+                  Reference Designation Systems (RDS)
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  BIM Services
-                </a>
+                <Link to="/services/bim-management" className="hover:text-white transition-colors">
+                  Building Information Modelling (BIM) Management
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <Link to="/services/product-development" className="hover:text-white transition-colors">
                   Product Development
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/asset-management" className="hover:text-white transition-colors">
+                  Asset Management
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/project-management" className="hover:text-white transition-colors">
+                  Project Management
+                </Link>
               </li>
             </ul>
           </div>
