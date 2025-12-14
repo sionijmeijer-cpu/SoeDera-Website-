@@ -36,16 +36,7 @@ function BlogContent() {
       readTime: '8 min read',
       tags: ['BIM', 'Construction', 'Digital Twins', 'AI', 'Cloud'],
     },
-    {
-      id: 'document-management',
-      title: 'Enterprise Document Management: Implementation Guide',
-      excerpt: 'A comprehensive guide to implementing enterprise document management systems. Learn about assessment, system selection, migration strategies, and best practices for successful EDMS deployment.',
-      date: '2025-01-10',
-      category: 'Enterprise Solutions',
-      author: 'Sødera Solutions Team',
-      readTime: '10 min read',
-      tags: ['EDMS', 'Document Management', 'Implementation', 'Workflow'],
-    },
+
     {
       id: 'agile-waterfall',
       title: 'Agile vs. Waterfall: A Complete Comparison Framework',
@@ -56,49 +47,10 @@ function BlogContent() {
       readTime: '12 min read',
       tags: ['Agile', 'Waterfall', 'Project Management', 'Methodology'],
     },
-    {
-      id: 'digital-transformation',
-      title: 'Digital Transformation in Manufacturing: A Practical Roadmap',
-      excerpt: 'A practical roadmap for manufacturers embarking on digital transformation. Explore strategies for IoT integration, predictive analytics, digital twins, and building a culture of innovation.',
-      date: '2025-01-15',
-      category: 'Digital Transformation',
-      author: 'Sødera Solutions Team',
-      readTime: '11 min read',
-      tags: ['Manufacturing', 'Digital Transformation', 'IoT', 'Industry 4.0'],
-    },
-    {
-      id: 'predictive-maintenance',
-      title: 'Predictive Maintenance: Strategies to Boost Asset Performance',
-      excerpt: 'Transform asset management from reactive to proactive with predictive maintenance. Learn about sensor technologies, machine learning algorithms, and implementation strategies that maximize equipment uptime and performance.',
-      date: '2025-01-18',
-      category: 'Asset Management',
-      author: 'Sødera Solutions Team',
-      readTime: '9 min read',
-      tags: ['Predictive Maintenance', 'Asset Management', 'IoT', 'Machine Learning'],
-    },
-    {
-      id: 'rds-standards',
-      title: 'Reference Designation Systems (RDS): Standards & Practical Guide',
-      excerpt: 'Master the fundamentals of Reference Designation Systems. Comprehensive coverage of ISO 81346, KKS, and RDS-PP standards, plus practical implementation strategies for industrial facilities.',
-      date: '2025-01-20',
-      category: 'Standards & Best Practices',
-      author: 'Sødera Solutions Team',
-      readTime: '10 min read',
-      tags: ['RDS', 'ISO 81346', 'Standards', 'Asset Identification'],
-    },
-    {
-      id: 'cloud-information',
-      title: 'Cloud Information Management: Security, Scalability & Best Practices',
-      excerpt: 'Explore comprehensive strategies for cloud-based information management. Learn about security architecture, scalability approaches, migration strategies, and governance frameworks for successful cloud adoption.',
-      date: '2025-01-22',
-      category: 'Cloud Technology',
-      author: 'Sødera Solutions Team',
-      readTime: '11 min read',
-      tags: ['Cloud', 'Information Management', 'Security', 'Scalability'],
-    },
+
   ];
 
-  const categories = ['All', 'Product Innovation', 'Technology & Innovation', 'Enterprise Solutions', 'Project Management', 'Digital Transformation', 'Asset Management', 'Standards & Best Practices', 'Cloud Technology'];
+  const categories = ['All', 'Product Innovation', 'Technology & Innovation', 'Enterprise Solutions', 'Project Management'];
 
   const filteredPosts = selectedCategory === 'All' 
     ? blogPosts 

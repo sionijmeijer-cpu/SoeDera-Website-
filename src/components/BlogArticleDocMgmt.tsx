@@ -1,24 +1,34 @@
-import { ArrowLeft, Calendar, User, Clock } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Linkedin, Link as LinkIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function BlogArticleDocMgmt() {
+  const handleLinkedInShare = () => {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+  };
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Link copied to clipboard!');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 animate-fade-in">
-      {/* Sticky Header */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 h-16">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50 h-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-          <Link
-            to="/blog"
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors duration-200"
+          <Link 
+            to="/blog" 
+            className="inline-flex items-center text-gray-600 hover:text-orange-600 transition-colors duration-200"
           >
-            <ArrowLeft className="w-5 h-5 mr-2" />
+            <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Blog
           </Link>
         </div>
       </header>
 
       {/* Article Content */}
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-6">
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mt-24">
         {/* Hero Section */}
         <div className="mb-12">
           <div className="mb-6">
@@ -180,21 +190,36 @@ export default function BlogArticleDocMgmt() {
           </div>
         </div>
 
-        {/* Author Section */}
+        {/* Share Section */}
         <div className="mt-16 pt-8 border-t border-gray-200">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">SS</span>
-              </div>
-            </div>
-            <div className="ml-4">
-              <h3 className="text-lg font-semibold text-gray-900">Sødera Solutions Team</h3>
-              <p className="text-gray-600">
-                Expert insights on digital transformation, asset management, and enterprise technology solutions.
-              </p>
-            </div>
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">Share this article</h3>
+          <div className="flex gap-4">
+            <button
+              onClick={handleLinkedInShare}
+              className="flex items-center gap-2 px-6 py-3 bg-[#0077B5] text-white rounded-lg hover:bg-[#006396] transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+            >
+              <Linkedin className="w-5 h-5" />
+              <span>LinkedIn</span>
+            </button>
+            <button
+              onClick={handleCopyLink}
+              className="flex items-center gap-2 px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+            >
+              <LinkIcon className="w-5 h-5" />
+              <span>Copy Link</span>
+            </button>
           </div>
+        </div>
+
+        {/* Back to Blog Button */}
+        <div className="mt-12 text-center">
+          <Link
+            to="/blog"
+            className="inline-flex items-center px-8 py-4 bg-orange-600 text-white rounded-lg font-semibold hover:bg-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            <ArrowLeft className="w-5 h-5 mr-2" />
+            Back to Blog
+          </Link>
         </div>
       </article>
     </div>

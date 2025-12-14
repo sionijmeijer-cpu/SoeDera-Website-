@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Youtube } from 'lucide-react';
+import { Mail, MapPin, Linkedin } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Input } from '../components/ui/input';
@@ -147,28 +147,15 @@ function ContactContent() {
                   <div>
                     <h3 className="font-semibold text-gray-900 text-base sm:text-lg mb-1">Email</h3>
                     <a
-                      href="mailto:info@soderasolutions.com"
+                      href="mailto:info@soedera.eu"
                       className="text-sm sm:text-base text-blue-600 hover:text-blue-700 hover:underline break-all"
                     >
-                      info@soderasolutions.com
+                      info@soedera.eu
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 p-3 rounded-lg flex-shrink-0">
-                    <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 text-base sm:text-lg mb-1">Phone</h3>
-                    <a
-                      href="tel:+1234567890"
-                      className="text-sm sm:text-base text-blue-600 hover:text-blue-700 hover:underline"
-                    >
-                      +1 (234) 567-890
-                    </a>
-                  </div>
-                </div>
+
 
                 <div className="flex items-start space-x-4">
                   <div className="bg-orange-100 p-3 rounded-lg flex-shrink-0">
@@ -177,7 +164,7 @@ function ContactContent() {
                   <div>
                     <h3 className="font-semibold text-gray-900 text-base sm:text-lg mb-1">Location</h3>
                     <p className="text-sm sm:text-base text-gray-600">
-                      Melbourne, Australia
+                      Braga, Portugal
                     </p>
                   </div>
                 </div>
@@ -188,26 +175,18 @@ function ContactContent() {
               <CardHeader>
                 <CardTitle className="text-xl sm:text-2xl">Connect With Us</CardTitle>
                 <CardDescription className="text-sm sm:text-base">
-                  Follow us on social media for updates and insights.
+                  Follow us on LinkedIn for updates and insights.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex space-x-4">
                   <a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/company/106622271/admin/dashboard/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-100 p-3 sm:p-4 rounded-lg hover:bg-blue-200 transition-colors duration-200"
                   >
                     <Linkedin className="h-6 w-6 sm:h-7 sm:w-7 text-blue-600" />
-                  </a>
-                  <a
-                    href="https://youtube.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-red-100 p-3 sm:p-4 rounded-lg hover:bg-red-200 transition-colors duration-200"
-                  >
-                    <Youtube className="h-6 w-6 sm:h-7 sm:w-7 text-red-600" />
                   </a>
                 </div>
               </CardContent>
