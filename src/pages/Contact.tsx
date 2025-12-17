@@ -1,4 +1,4 @@
-import { Mail, MapPin, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Youtube } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Input } from '../components/ui/input';
@@ -154,8 +154,6 @@ function ContactContent() {
                     </a>
                   </div>
                 </div>
-
-
 
                 <div className="flex items-start space-x-4">
                   <div className="bg-orange-100 p-3 rounded-lg flex-shrink-0">

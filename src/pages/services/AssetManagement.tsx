@@ -20,10 +20,10 @@ function AssetManagementContent() {
   ];
 
   const standards = [
-    { name: 'ISO 55000', description: 'Asset Management Standards' },
-    { name: 'PAS 55', description: 'Asset Management Specifications' },
-    { name: 'ISO 14224', description: 'Equipment Reliability Data' },
-    { name: 'ISO 31000', description: 'Risk Management' },
+    { name: 'ISO 55000 Series', description: 'Asset Management' },
+    { name: 'ISO 55001', description: 'Asset Management Management Systems' },
+    { name: 'PAS 55', description: 'Optimized Management of Physical Assets' },
+    { name: 'ISO 14224', description: 'Equipment Reliability and Maintenance Data' },
   ];
 
   return (
@@ -136,7 +136,7 @@ function AssetManagementContent() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-16 bg-blue-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Optimize Your Asset Performance?

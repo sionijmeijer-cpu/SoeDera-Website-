@@ -58,7 +58,7 @@ function ServicesContent() {
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
       }}>
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-md"></div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             Our Services

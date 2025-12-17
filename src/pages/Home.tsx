@@ -98,8 +98,8 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Document Management */}
             <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
-              <div className="text-slate-700 mb-4">
-                <FileText className="w-12 h-12" />
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <FileText className="w-6 h-6 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Document Management</h3>
               <p className="text-gray-600 mb-4">
@@ -116,8 +116,8 @@ export default function Home() {
 
             {/* RDS Concepts */}
             <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
-              <div className="text-slate-700 mb-4">
-                <Network className="w-12 h-12" />
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <Network className="w-6 h-6 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Reference Designation Systems</h3>
               <p className="text-gray-600 mb-4">
@@ -134,8 +134,8 @@ export default function Home() {
 
             {/* BIM Management */}
             <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
-              <div className="text-slate-700 mb-4">
-                <Building2 className="w-12 h-12" />
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <Building2 className="w-6 h-6 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">BIM Management</h3>
               <p className="text-gray-600 mb-4">
@@ -152,8 +152,8 @@ export default function Home() {
 
             {/* Product Development */}
             <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
-              <div className="text-slate-700 mb-4">
-                <Package className="w-12 h-12" />
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <Package className="w-6 h-6 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Product Development</h3>
               <p className="text-gray-600 mb-4">
@@ -170,8 +170,8 @@ export default function Home() {
 
             {/* Asset Management */}
             <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
-              <div className="text-slate-700 mb-4">
-                <Database className="w-12 h-12" />
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <Database className="w-6 h-6 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Asset Management</h3>
               <p className="text-gray-600 mb-4">
@@ -188,8 +188,8 @@ export default function Home() {
 
             {/* Project Management */}
             <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
-              <div className="text-slate-700 mb-4">
-                <FolderKanban className="w-12 h-12" />
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <FolderKanban className="w-6 h-6 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Project Management</h3>
               <p className="text-gray-600 mb-4">

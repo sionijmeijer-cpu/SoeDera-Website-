@@ -15,7 +15,7 @@ export default function Footer() {
               Connecting organisations with trained resources and experts to drive operational efficiency and success.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/company/106622271/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/company/s%C3%B8dera/about/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Linkedin size={20} />
               </a>
 
@@ -92,12 +92,12 @@ export default function Footer() {
             © {new Date().getFullYear()} SøDera Solutions. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
+            <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
+            </Link>
+            <Link to="/terms" className="text-gray-400 hover:text-white transition-colors">
               Terms of Service
-            </a>
+            </Link>
             <Link to="/contact" className="text-gray-400 hover:text-white transition-colors">
               Contact
             </Link>

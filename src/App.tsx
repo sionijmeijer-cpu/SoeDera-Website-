@@ -12,6 +12,8 @@ import BlogPost from './pages/BlogPost';
 import FAQ from './pages/FAQ';
 import Brochure from './pages/Brochure';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import DocumentManagement from './pages/services/DocumentManagement';
 import RDS from './pages/services/RDS';
 import BIMManagement from './pages/services/BIMManagement';
@@ -73,6 +75,8 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/brochure" element={<Brochure />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
           </Routes>
         </main>
         <Footer />

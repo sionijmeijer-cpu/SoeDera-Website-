@@ -14,6 +14,47 @@ export default function Blog() {
 
 function BlogContent() {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [subscriberName, setSubscriberName] = useState('');
+  const [subscriberEmail, setSubscriberEmail] = useState('');
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!subscriberName || !subscriberEmail) {
+      alert('Please fill in both name and email');
+      return;
+    }
+
+    try {
+      // Send email notification
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '9a7c8c9d-8e3f-4b5a-9c2d-1e4f5a6b7c8d',
+          subject: 'New Newsletter Subscription - Sødera Solutions',
+          from_name: 'Sødera Solutions Newsletter',
+          to_email: 'info@soedera.eu',
+          message: `New subscriber:\n\nName: ${subscriberName}\nEmail: ${subscriberEmail}`,
+        }),
+      });
+
+      // Show success popup
+      setShowSuccessPopup(true);
+      
+      // Reset form
+      setSubscriberName('');
+      setSubscriberEmail('');
+      
+      // Hide popup after 3 seconds
+      setTimeout(() => setShowSuccessPopup(false), 3000);
+    } catch (error) {
+      alert('Subscription failed. Please try again.');
+    }
+  };
 
   const blogPosts = [
     {
@@ -59,7 +100,7 @@ function BlogContent() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Hero Section */}
-      <section className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://i.imgur.com/AdeYe1P.jpeg)' }}>
+      <section className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://i.imgur.com/8ocvstf.png)' }}>
       </section>
 
       {/* Category Filter */}
@@ -146,7 +187,7 @@ function BlogContent() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="bg-gradient-to-r from-orange-600 via-orange-500 to-blue-600 py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
+      <section className="bg-blue-900 py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
             Stay Informed
@@ -154,21 +195,44 @@ function BlogContent() {
           <p className="text-base sm:text-xl md:text-2xl text-white mb-6 sm:mb-8 opacity-95 leading-relaxed px-4">
             Subscribe to our newsletter for the latest insights on information management, industry trends, and expert tips
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-lg mx-auto px-4">
+          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-lg mx-auto px-4">
             <input
               type="text"
               placeholder="Your name"
-              className="w-full sm:flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-4 focus:ring-white/50 text-sm sm:text-base shadow-lg"
+              value={subscriberName}
+              onChange={(e) => setSubscriberName(e.target.value)}
+              className="w-full sm:flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-lg text-white placeholder-white bg-blue-800 focus:outline-none focus:ring-4 focus:ring-white/50 text-sm sm:text-base shadow-lg"
+              required
             />
             <input
               type="email"
               placeholder="Your email"
-              className="w-full sm:flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-lg text-gray-900 focus:outline-none focus:ring-4 focus:ring-white/50 text-sm sm:text-base shadow-lg"
+              value={subscriberEmail}
+              onChange={(e) => setSubscriberEmail(e.target.value)}
+              className="w-full sm:flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-lg text-white placeholder-white bg-blue-800 focus:outline-none focus:ring-4 focus:ring-white/50 text-sm sm:text-base shadow-lg"
+              required
             />
-            <Button className="w-full sm:w-auto bg-white text-orange-600 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-2xl font-bold text-sm sm:text-base transform hover:scale-105 transition-all duration-200">
+            <Button type="submit" className="w-full sm:w-auto bg-white text-orange-600 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 rounded-lg shadow-lg hover:shadow-2xl font-bold text-sm sm:text-base transform hover:scale-105 transition-all duration-200">
               Subscribe
             </Button>
-          </div>
+          </form>
+          
+          {/* Success Popup */}
+          {showSuccessPopup && (
+            <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 animate-fade-in">
+              <div className="bg-white rounded-lg shadow-2xl p-8 max-w-md mx-4 animate-scale-in">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Successfully Subscribed!</h3>
+                  <p className="text-gray-600">Thank you for subscribing to our newsletter.</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </div>
