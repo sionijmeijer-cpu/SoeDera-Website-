@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 sm:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <img src="https://i.imgur.com/r2HbYJj.png" alt="SøDera Solutions" className="h-12 w-auto sm:h-14" />
+              <img src="https://i.imgur.com/r2HbYJj.png" alt="SøDera Solutions" className="h-20 w-auto sm:h-24 md:h-28" />
             </div>
             <p className="text-gray-400 mb-4 text-sm sm:text-base">
               Connecting organisations with trained resources and experts to drive operational efficiency and success.
