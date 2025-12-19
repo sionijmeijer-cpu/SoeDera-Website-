@@ -2,6 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- ✅ Apex -> www redirect (prevents redirect loops because it only runs on soedera.eu) -->
+    <script>
+      (function () {
+        if (location.hostname === "soedera.eu") {
+          location.replace(
+            "https://www.soedera.eu" +
+              location.pathname +
+              location.search +
+              location.hash
+          );
+        }
+      })();
+    </script>
+
     <link rel="icon" href="/sodera-logo.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SøDera Solutions - Expert Resource Management & Operational Excellence</title>
@@ -11,7 +26,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="revisit-after" content="7 days" />
-    
+
     <!-- Open Graph Tags for Social Sharing -->
     <meta property="og:title" content="SøDera Solutions - Expert Resource Management & Operational Excellence" />
     <meta property="og:description" content="Connect with trained resources and experts to drive operational efficiency through comprehensive management solutions." />
@@ -19,21 +34,21 @@
     <meta property="og:url" content="https://www.soedera.eu" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="SøDera Solutions" />
-    
+
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SøDera Solutions - Expert Resource Management & Operational Excellence" />
     <meta name="twitter:description" content="Connect with trained resources and experts to drive operational efficiency." />
     <meta name="twitter:image" content="https://i.imgur.com/r2HbYJj.png" />
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.soedera.eu" />
-    
+
     <!-- Additional Meta Tags -->
     <meta name="theme-color" content="#1f2937" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    
+
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
     {
