@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- Apex → www redirect (safe, no loops) -->
+    <!-- Apex → www redirect (works now that A record exists) -->
     <script>
       (function () {
         if (location.hostname === "soedera.eu") {
@@ -17,7 +17,7 @@
       })();
     </script>
 
-    <!-- Favicons (MATCHES FILES YOU HAVE) -->
+    <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
