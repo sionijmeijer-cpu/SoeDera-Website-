@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- ✅ Apex -> www redirect (prevents redirect loops because it only runs on soedera.eu) -->
+    <!-- Apex → www redirect (safe, no loops) -->
     <script>
       (function () {
         if (location.hostname === "soedera.eu") {
@@ -17,17 +17,33 @@
       })();
     </script>
 
-    <link rel="icon" href="/sodera-logo.png" type="image/png" />
+    <!-- Favicons (MATCHES FILES YOU HAVE) -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SøDera Solutions - Expert Resource Management & Operational Excellence</title>
-    <meta name="description" content="SøDera Solutions connects organisations with trained resources and experts to drive operational efficiency through document management, BIM, asset management, and project management services." />
-    <meta name="keywords" content="resource management, BIM, asset management, document management, operational efficiency, project management" />
+
+    <meta
+      name="description"
+      content="SøDera Solutions connects organisations with trained resources and experts to drive operational efficiency through document management, BIM, asset management, and project management services."
+    />
+    <meta
+      name="keywords"
+      content="resource management, BIM, asset management, document management, operational efficiency, project management"
+    />
     <meta name="author" content="SøDera Solutions" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="revisit-after" content="7 days" />
 
-    <!-- Open Graph Tags for Social Sharing -->
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.soedera.eu" />
+
+    <!-- Open Graph -->
     <meta property="og:title" content="SøDera Solutions - Expert Resource Management & Operational Excellence" />
     <meta property="og:description" content="Connect with trained resources and experts to drive operational efficiency through comprehensive management solutions." />
     <meta property="og:image" content="https://i.imgur.com/r2HbYJj.png" />
@@ -35,28 +51,25 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="SøDera Solutions" />
 
-    <!-- Twitter Card Tags -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="SøDera Solutions - Expert Resource Management & Operational Excellence" />
     <meta name="twitter:description" content="Connect with trained resources and experts to drive operational efficiency." />
     <meta name="twitter:image" content="https://i.imgur.com/r2HbYJj.png" />
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.soedera.eu" />
-
-    <!-- Additional Meta Tags -->
+    <!-- Theme / PWA -->
     <meta name="theme-color" content="#1f2937" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <!-- Structured Data (Schema.org) -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "SøDera Solutions",
       "url": "https://www.soedera.eu",
-      "logo": "https://i.imgur.com/r2HbYJj.png",
+      "logo": "https://www.soedera.eu/apple-touch-icon.png",
       "description": "Expert resource management and operational excellence solutions",
       "sameAs": [
         "https://www.linkedin.com/company/s%C3%B8dera/"
@@ -69,6 +82,7 @@
     }
     </script>
   </head>
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
