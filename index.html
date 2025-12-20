@@ -3,7 +3,19 @@
   <head>
     <meta charset="UTF-8" />
 
-    <!-- Apex → www redirect (works now that A record exists) -->
+    <!-- Apex noindex safety net (ONLY on soedera.eu) -->
+    <script>
+      (function () {
+        if (location.hostname === "soedera.eu") {
+          var meta = document.createElement("meta");
+          meta.name = "robots";
+          meta.content = "noindex, nofollow, noarchive";
+          document.head.appendChild(meta);
+        }
+      })();
+    </script>
+
+    <!-- Apex → www redirect -->
     <script>
       (function () {
         if (location.hostname === "soedera.eu") {
@@ -44,8 +56,14 @@
     <link rel="canonical" href="https://www.soedera.eu" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="SøDera Solutions - Expert Resource Management & Operational Excellence" />
-    <meta property="og:description" content="Connect with trained resources and experts to drive operational efficiency through comprehensive management solutions." />
+    <meta
+      property="og:title"
+      content="SøDera Solutions - Expert Resource Management & Operational Excellence"
+    />
+    <meta
+      property="og:description"
+      content="Connect with trained resources and experts to drive operational efficiency through comprehensive management solutions."
+    />
     <meta property="og:image" content="https://i.imgur.com/r2HbYJj.png" />
     <meta property="og:url" content="https://www.soedera.eu" />
     <meta property="og:type" content="website" />
@@ -53,8 +71,14 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SøDera Solutions - Expert Resource Management & Operational Excellence" />
-    <meta name="twitter:description" content="Connect with trained resources and experts to drive operational efficiency." />
+    <meta
+      name="twitter:title"
+      content="SøDera Solutions - Expert Resource Management & Operational Excellence"
+    />
+    <meta
+      name="twitter:description"
+      content="Connect with trained resources and experts to drive operational efficiency."
+    />
     <meta name="twitter:image" content="https://i.imgur.com/r2HbYJj.png" />
 
     <!-- Theme / PWA -->
