@@ -15,15 +15,16 @@ export default function Home() {
           backgroundAttachment: 'fixed',
           minHeight: '500px'
         }}
+        aria-label="Hero section introducing SøDera Solutions"
       >
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/50" aria-hidden="true"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              We help improve company's Information Management
+              Expert Resource Management & Operational Excellence Solutions
             </h1>
             <p className="text-lg sm:text-xl mb-8 leading-relaxed text-gray-100">
-              We provide customized solutions using our expertise in Reference Designation System, Document Management, Information Management and Product Development.
+              We provide customized solutions using our expertise in Reference Designation Systems (RDS), Document Management, Information Management, BIM Integration and Product Development.
             </p>
             <Link
               to="/services"
@@ -37,7 +38,7 @@ export default function Home() {
       </section>
 
       {/* Who We Are Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" aria-labelledby="about-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Video */}
@@ -49,6 +50,7 @@ export default function Home() {
                 muted
                 playsInline
                 className="rounded-lg shadow-2xl w-full h-auto"
+                aria-label="SøDera Solutions company introduction video"
               >
                 Your browser does not support the video tag.
               </video>
@@ -59,8 +61,8 @@ export default function Home() {
               <p className="text-slate-600 font-semibold text-sm uppercase tracking-wide mb-3">
                 WHO WE ARE
               </p>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                SøDera
+              <h2 id="about-heading" className="text-4xl font-bold text-gray-900 mb-6">
+                SøDera Solutions - Resource Management Experts
               </h2>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
                 At SøDera, we connect organisations with trained resources and experts to drive operational efficiency and success. Our expertise spans Document Management, Reference Designation System, Building Information Modelling and Product Development.
@@ -81,14 +83,14 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" aria-labelledby="services-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-slate-600 font-semibold text-sm uppercase tracking-wide mb-3">
               OUR SERVICES
             </p>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              What We Offer
+            <h2 id="services-heading" className="text-4xl font-bold text-gray-900 mb-4">
+              Comprehensive Consulting Services
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
               Comprehensive solutions designed to streamline your operations and maximize efficiency
@@ -97,7 +99,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Document Management */}
-            <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
+            <article className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                 <FileText className="w-6 h-6 text-orange-600" />
               </div>
@@ -108,50 +110,53 @@ export default function Home() {
               <Link
                 to="/services/document-management"
                 className="inline-flex items-center gap-2 text-slate-700 font-semibold hover:text-slate-600 transition-colors"
+                aria-label="Learn more about Document Management services"
               >
                 Learn More
-                <ArrowRight size={16} />
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
-            </div>
+            </article>
 
             {/* RDS Concepts */}
-            <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
+            <article className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                 <Network className="w-6 h-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Reference Designation Systems</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Reference Designation Systems (RDS)</h3>
               <p className="text-gray-600 mb-4">
-                Standardized labeling systems for clear identification of components and systems.
+                ISO/IEC 81346 compliant standardized labeling systems for clear identification of components and systems.
               </p>
               <Link
                 to="/services/rds"
                 className="inline-flex items-center gap-2 text-slate-700 font-semibold hover:text-slate-600 transition-colors"
+                aria-label="Learn more about Reference Designation Systems"
               >
                 Learn More
-                <ArrowRight size={16} />
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
-            </div>
+            </article>
 
             {/* BIM Management */}
-            <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
+            <article className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                 <Building2 className="w-6 h-6 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">BIM Management</h3>
               <p className="text-gray-600 mb-4">
-                Digital representation and management of facility characteristics for better coordination.
+                Building Information Modeling - digital representation and management of facility characteristics for better coordination.
               </p>
               <Link
                 to="/services/bim-management"
                 className="inline-flex items-center gap-2 text-slate-700 font-semibold hover:text-slate-600 transition-colors"
+                aria-label="Learn more about BIM Management services"
               >
                 Learn More
-                <ArrowRight size={16} />
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
-            </div>
+            </article>
 
             {/* Product Development */}
-            <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
+            <article className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                 <Package className="w-6 h-6 text-orange-600" />
               </div>
@@ -162,14 +167,15 @@ export default function Home() {
               <Link
                 to="/services/product-development"
                 className="inline-flex items-center gap-2 text-slate-700 font-semibold hover:text-slate-600 transition-colors"
+                aria-label="Learn more about Product Development services"
               >
                 Learn More
-                <ArrowRight size={16} />
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
-            </div>
+            </article>
 
             {/* Asset Management */}
-            <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
+            <article className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                 <Database className="w-6 h-6 text-orange-600" />
               </div>
@@ -180,14 +186,15 @@ export default function Home() {
               <Link
                 to="/services/asset-management"
                 className="inline-flex items-center gap-2 text-slate-700 font-semibold hover:text-slate-600 transition-colors"
+                aria-label="Learn more about Asset Management services"
               >
                 Learn More
-                <ArrowRight size={16} />
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
-            </div>
+            </article>
 
             {/* Project Management */}
-            <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
+            <article className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 border border-slate-200 hover:border-slate-300">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                 <FolderKanban className="w-6 h-6 text-orange-600" />
               </div>
@@ -198,11 +205,12 @@ export default function Home() {
               <Link
                 to="/services/project-management"
                 className="inline-flex items-center gap-2 text-slate-700 font-semibold hover:text-slate-600 transition-colors"
+                aria-label="Learn more about Project Management services"
               >
                 Learn More
-                <ArrowRight size={16} />
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
-            </div>
+            </article>
           </div>
 
           <div className="text-center mt-12">
@@ -218,9 +226,9 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-800 to-slate-700">
+      <section className="py-20 bg-gradient-to-r from-slate-800 to-slate-700" aria-labelledby="cta-heading">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 id="cta-heading" className="text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Transform Your Operations?
           </h2>
           <p className="text-xl text-slate-200 mb-8">

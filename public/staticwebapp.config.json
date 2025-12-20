@@ -1,35 +1,31 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": [
-      "/robots.txt",
-      "/sitemap.xml",
-
-      "/sodera-logo.png",
-      "/sodera-logo.svg",
-
-      "/favicon.ico",
-      "/favicon-96x96.png",
-      "/favicon.svg",
-      "/apple-touch-icon.png",
-      "/site.webmanifest",
-
-      "/assets/*",
-      "/images/*",
-
-      "/*.{png,jpg,jpeg,gif,svg,ico,webp,css,js,txt,xml,json,webmanifest}"
-    ]
+    "exclude": ["/images/*.{png,jpg,gif,svg}", "/*.{css,js}"]
+  },
+  "routes": [
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ],
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html",
+      "statusCode": 200
+    }
   },
   "globalHeaders": {
     "content-security-policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:;",
     "cache-control": "must-revalidate, max-age=3600"
   },
   "mimeTypes": {
-    ".ico": "image/x-icon",
+    ".json": "application/json",
     ".png": "image/png",
+    ".jpg": "image/jpeg",
     ".svg": "image/svg+xml",
-    ".webmanifest": "application/manifest+json",
-    ".xml": "application/xml",
-    ".txt": "text/plain"
+    ".css": "text/css",
+    ".js": "application/javascript"
   }
 }

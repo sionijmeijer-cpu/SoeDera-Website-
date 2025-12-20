@@ -10,17 +10,17 @@ interface SEOProps {
 }
 
 const defaultMeta = {
-  title: 'SøDera Solutions - Expert Consulting in RDS, Document & Information Management',
-  description: 'Leading consultancy specializing in Reference Designation Systems (RDS), document management, BIM integration, and digital transformation. ISO/IEC 81346 compliance experts.',
-  keywords: 'RDS, Reference Designation Systems, document management, information management, BIM, ISO 81346, IEC 81346, digital transformation, asset management, SAM',
+  title: 'SøDera Solutions - Expert Resource Management & Operational Excellence',
+  description: 'Leading consultancy specializing in Reference Designation Systems (RDS), Document Management, BIM Integration, Asset Management, and Digital Transformation. ISO/IEC 81346 compliance experts serving global enterprises.',
+  keywords: 'resource management, operational excellence, RDS, Reference Designation Systems, document management, information management, BIM, ISO 81346, IEC 81346, digital transformation, asset management, consulting, enterprise solutions',
   ogImage: '/og-image.jpg',
 };
 
 const pageMeta: Record<string, { title: string; description: string; keywords: string }> = {
   '/': {
-    title: 'SøDera Solutions - Expert Consulting in RDS, Document & Information Management',
-    description: 'Leading consultancy specializing in Reference Designation Systems (RDS), document management, BIM integration, and digital transformation. ISO/IEC 81346 compliance experts.',
-    keywords: 'RDS, Reference Designation Systems, document management, information management, BIM, consulting, digital transformation',
+    title: 'SøDera Solutions - Expert Resource Management & Operational Excellence',
+    description: 'Transform your operations with expert consulting in Reference Designation Systems (RDS), Document Management, BIM Integration, Asset Management, and Digital Transformation. ISO/IEC 81346 compliance specialists serving enterprises worldwide.',
+    keywords: 'resource management, operational excellence, RDS consulting, Reference Designation Systems, document management solutions, information management, BIM integration, ISO 81346 compliance, IEC 81346, digital transformation, asset management, enterprise consulting, infrastructure management',
   },
   '/services': {
     title: 'Our Services - RDS, Document Management & Digital Solutions | SøDera',
