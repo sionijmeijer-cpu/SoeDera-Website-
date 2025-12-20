@@ -2,15 +2,22 @@
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": [
+      "/robots.txt",
+      "/sitemap.xml",
+
       "/sodera-logo.png",
       "/sodera-logo.svg",
+
       "/favicon.ico",
-      "/favicon.png",
+      "/favicon-96x96.png",
+      "/favicon.svg",
       "/apple-touch-icon.png",
       "/site.webmanifest",
+
       "/assets/*",
       "/images/*",
-      "/*.{png,jpg,jpeg,gif,svg,ico,webp,css,js,txt,xml,json}"
+
+      "/*.{png,jpg,jpeg,gif,svg,ico,webp,css,js,txt,xml,json,webmanifest}"
     ]
   },
   "globalHeaders": {
@@ -21,6 +28,8 @@
     ".ico": "image/x-icon",
     ".png": "image/png",
     ".svg": "image/svg+xml",
-    ".webmanifest": "application/manifest+json"
+    ".webmanifest": "application/manifest+json",
+    ".xml": "application/xml",
+    ".txt": "text/plain"
   }
 }
