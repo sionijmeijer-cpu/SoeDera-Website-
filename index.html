@@ -3,6 +3,33 @@
   <head>
     <meta charset="UTF-8" />
 
+    <!-- Force canonical + social URL to www (prevents Shipper/other tooling from outputting apex canonical) -->
+    <script>
+      (function () {
+        var desiredHost = "www.soedera.eu";
+        var canonicalUrl =
+          "https://" + desiredHost + location.pathname + location.search;
+
+        // Canonical
+        var c = document.querySelector('link[rel="canonical"]');
+        if (c) c.setAttribute("href", canonicalUrl);
+        else {
+          c = document.createElement("link");
+          c.setAttribute("rel", "canonical");
+          c.setAttribute("href", canonicalUrl);
+          document.head.appendChild(c);
+        }
+
+        // OG URL
+        var og = document.querySelector('meta[property="og:url"]');
+        if (og) og.setAttribute("content", canonicalUrl);
+
+        // Twitter URL (optional but helpful)
+        var tw = document.querySelector('meta[name="twitter:url"]');
+        if (tw) tw.setAttribute("content", canonicalUrl);
+      })();
+    </script>
+
     <!-- soedera.eu: DO NOT INDEX + redirect to www -->
     <script>
       (function () {
@@ -75,6 +102,7 @@
       content="Transform your operations with expert consulting in RDS, Document Management, BIM Integration, and Asset Management."
     />
     <meta name="twitter:image" content="https://i.imgur.com/r2HbYJj.png" />
+    <meta name="twitter:url" content="https://www.soedera.eu" />
 
     <!-- Theme / PWA -->
     <meta name="theme-color" content="#1f2937" />
@@ -121,7 +149,7 @@
         "Digital Transformation"
       ],
       "sameAs": [
-        "https://www.linkedin.com/company/sødera/"
+        "https://www.linkedin.com/company/s%C3%B8dera/"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
