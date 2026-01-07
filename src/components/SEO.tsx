@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 const defaultMeta = {
-  title: 'SøDera Solutions - Expert Resource Management & Operational Excellence',
+  title: 'SøDera - Expert Resource Management & Operational Excellence',
   description: 'Leading consultancy specializing in Reference Designation Systems (RDS), Document Management, BIM Integration, Asset Management, and Digital Transformation. ISO/IEC 81346 compliance experts serving global enterprises.',
   keywords: 'resource management, operational excellence, RDS, Reference Designation Systems, document management, information management, BIM, ISO 81346, IEC 81346, digital transformation, asset management, consulting, enterprise solutions',
   ogImage: '/og-image.jpg',
@@ -18,7 +18,7 @@ const defaultMeta = {
 
 const pageMeta: Record<string, { title: string; description: string; keywords: string }> = {
   '/': {
-    title: 'SøDera Solutions - Expert Resource Management & Operational Excellence',
+    title: 'SøDera - Expert Resource Management & Operational Excellence',
     description: 'Transform your operations with expert consulting in Reference Designation Systems (RDS), Document Management, BIM Integration, Asset Management, and Digital Transformation. ISO/IEC 81346 compliance specialists serving enterprises worldwide.',
     keywords: 'resource management, operational excellence, RDS consulting, Reference Designation Systems, document management solutions, information management, BIM integration, ISO 81346 compliance, IEC 81346, digital transformation, asset management, enterprise consulting, infrastructure management',
   },
@@ -49,17 +49,17 @@ const pageMeta: Record<string, { title: string; description: string; keywords: s
   },
   '/about': {
     title: 'About Us - Meet the SøDera Team | Expert Consultants',
-    description: 'Learn about SøDera Solutions, our mission, values, and expert team. Founded by Søren Christensen and Sylvia Awoudu to transform infrastructure management.',
+    description: 'Learn about SøDera, our mission, values, and expert team. Founded by Søren Christensen and Sylvia Awoudu to transform infrastructure management.',
     keywords: 'about SøDera, company history, consulting team, Søren Christensen, Sylvia Awoudu, consulting expertise',
   },
   '/blog': {
-    title: 'Blog - Industry Insights & Best Practices | SøDera Solutions',
+    title: 'Blog - Industry Insights & Best Practices | SøDera',
     description: 'Expert insights on RDS, document management, BIM, digital transformation, and technology trends. Stay informed with our latest articles.',
     keywords: 'consulting blog, RDS insights, document management tips, BIM best practices, digital transformation, industry trends',
   },
   '/contact': {
-    title: 'Contact Us - Get Expert Consulting Help | SøDera Solutions',
-    description: 'Ready to transform your operations? Contact SøDera Solutions for expert consulting in RDS, document management, and digital transformation.',
+    title: 'Contact Us - Get Expert Consulting Help | SøDera',
+    description: 'Ready to transform your operations? Contact SøDera for expert consulting in RDS, document management, and digital transformation.',
     keywords: 'contact SøDera, consulting inquiry, get quote, schedule consultation, info@soedera.eu',
   },
   '/projects': {
@@ -68,58 +68,84 @@ const pageMeta: Record<string, { title: string; description: string; keywords: s
     keywords: 'case studies, project portfolio, success stories, client projects, consulting results',
   },
   '/faq': {
-    title: 'FAQ - Frequently Asked Questions | SøDera Solutions',
-    description: 'Find answers to common questions about RDS, document management, consulting services, and working with SøDera Solutions.',
+    title: 'FAQ - Frequently Asked Questions | SøDera',
+    description: 'Find answers to common questions about RDS, document management, consulting services, and working with SøDera.',
     keywords: 'FAQ, frequently asked questions, consulting questions, RDS questions, service inquiries',
   },
   '/brochure': {
-    title: 'Download Our Brochure - Service Overview | SøDera Solutions',
+    title: 'Download Our Brochure - Service Overview | SøDera',
     description: 'Download SøDera\'s comprehensive service brochure. Learn about our consulting offerings, expertise, and how we can help your organization.',
     keywords: 'brochure download, service overview, consulting services guide, company brochure',
   },
 };
 
-// Blog article metadata
-const blogMeta: Record<string, { title: string; description: string; keywords: string }> = {
-  'sam-rds-tool': {
+// Blog article metadata with Open Graph images
+const blogMeta: Record<string, { title: string; description: string; keywords: string; ogImage: string }> = {
+  'sam-introduction': {
     title: 'Introducing SAM: Revolutionary RDS Management Tool | SøDera Blog',
     description: 'Discover SAM - SøDera Asset Management, our Azure-powered Reference Designation System management tool. Transform how you manage infrastructure.',
     keywords: 'SAM, SøDera Asset Management, RDS tool, Azure, asset management software, IEC 81346 software',
+    ogImage: 'https://i.imgur.com/uwiQHP8.jpeg',
   },
-  'bim-construction': {
-    title: 'BIM in Modern Construction - Complete Guide | SøDera Blog',
+  'bim-trends': {
+    title: 'The Future of BIM: Key Trends & Best Practices | SøDera Blog',
     description: 'How Building Information Modeling transforms construction projects. Learn BIM benefits, implementation strategies, and industry best practices.',
     keywords: 'BIM, Building Information Modeling, construction technology, 3D modeling, construction management',
-  },
-  'document-management': {
-    title: 'Enterprise Document Management Implementation Guide | SøDera Blog',
-    description: 'Complete guide to implementing enterprise document management systems. Best practices, tools, and strategies for success.',
-    keywords: 'enterprise document management, DMS implementation, document control, workflow automation',
-  },
-  'predictive-maintenance': {
-    title: 'Predictive Maintenance with IoT & AI - ROI Guide | SøDera Blog',
-    description: 'Leverage IoT and AI for predictive maintenance. Reduce downtime, optimize costs, and improve asset reliability.',
-    keywords: 'predictive maintenance, IoT, AI, asset management, maintenance optimization, condition monitoring',
+    ogImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
   },
   'agile-waterfall': {
     title: 'Agile vs Waterfall: Choosing the Right Methodology | SøDera Blog',
     description: 'Comprehensive comparison of Agile and Waterfall project management. Learn which methodology fits your project needs.',
     keywords: 'agile methodology, waterfall methodology, project management, software development, scrum',
+    ogImage: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
+  },
+  'document-management': {
+    title: 'Enterprise Document Management Implementation Guide | SøDera Blog',
+    description: 'Complete guide to implementing enterprise document management systems. Best practices, tools, and strategies for success.',
+    keywords: 'enterprise document management, DMS implementation, document control, workflow automation',
+    ogImage: 'https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=1200&q=80',
+  },
+  'predictive-maintenance': {
+    title: 'Predictive Maintenance with IoT & AI - ROI Guide | SøDera Blog',
+    description: 'Leverage IoT and AI for predictive maintenance. Reduce downtime, optimize costs, and improve asset reliability.',
+    keywords: 'predictive maintenance, IoT, AI, asset management, maintenance optimization, condition monitoring',
+    ogImage: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=80',
   },
   'digital-transformation': {
     title: 'Digital Transformation Roadmap for Enterprises | SøDera Blog',
     description: 'Strategic roadmap for successful digital transformation. Technology adoption, change management, and implementation best practices.',
     keywords: 'digital transformation, enterprise modernization, change management, technology adoption, innovation',
+    ogImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
   },
   'rds-standards': {
     title: 'Reference Designation Systems: ISO/IEC 81346 Guide | SøDera Blog',
     description: 'Master Reference Designation Systems with our comprehensive ISO/IEC 81346 guide. Standards compliance and implementation strategies.',
     keywords: 'RDS, ISO 81346, IEC 81346, reference designation, standards compliance, asset identification',
+    ogImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80',
   },
   'cloud-information': {
     title: 'Cloud Information Management: Security & Scalability | SøDera Blog',
     description: 'Enterprise cloud information management strategies. Security, scalability, and best practices for cloud-based systems.',
     keywords: 'cloud management, information security, cloud scalability, enterprise cloud, data governance',
+    ogImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80',
+  },
+  'edms-implementation': {
+    title: 'EDMS Implementation Best Practices | SøDera Blog',
+    description: 'Best practices for implementing Electronic Document Management Systems. Streamline workflows and improve compliance.',
+    keywords: 'EDMS, document management system, implementation, workflow, compliance',
+    ogImage: 'https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=1200&q=80',
+  },
+  'cloud-information-management': {
+    title: 'Cloud Information Management Strategies | SøDera Blog',
+    description: 'Modern cloud information management strategies for enterprise scalability and security.',
+    keywords: 'cloud information, enterprise cloud, data management, scalability',
+    ogImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80',
+  },
+  'digital-transform': {
+    title: 'Digital Transformation Guide | SøDera Blog',
+    description: 'Complete guide to digital transformation for modern enterprises.',
+    keywords: 'digital transformation, modernization, enterprise technology',
+    ogImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
   },
 };
 
@@ -135,10 +161,11 @@ export default function SEO({ title, description, keywords, ogImage, canonical }
     // Check if it's a blog article
     const blogMatch = pathname.match(/^\/blog\/(.+)$/);
     if (blogMatch && blogMeta[blogMatch[1]]) {
+      const articleMeta = blogMeta[blogMatch[1]];
       meta = {
         ...defaultMeta,
-        ...blogMeta[blogMatch[1]],
-        ogImage: ogImage || defaultMeta.ogImage,
+        ...articleMeta,
+        ogImage: articleMeta.ogImage || ogImage || defaultMeta.ogImage,
       };
     } else if (pageMeta[pathname]) {
       meta = {
@@ -165,7 +192,7 @@ export default function SEO({ title, description, keywords, ogImage, canonical }
     updateMetaTag('property', 'og:title', meta.title);
     updateMetaTag('property', 'og:description', meta.description);
     updateMetaTag('property', 'og:image', meta.ogImage);
-    updateMetaTag('property', 'og:url', `https://soedera.eu${pathname}`);
+    updateMetaTag('property', 'og:url', `https://www.soedera.eu${pathname}`);
     updateMetaTag('property', 'og:type', 'website');
     
     // Twitter Card tags
@@ -175,7 +202,7 @@ export default function SEO({ title, description, keywords, ogImage, canonical }
     updateMetaTag('name', 'twitter:image', meta.ogImage);
 
     // Canonical URL
-    updateCanonicalLink(canonical || `https://soedera.eu${pathname}`);
+    updateCanonicalLink(canonical || `https://www.soedera.eu${pathname}`);
 
     // Structured data for organization
     updateStructuredData();
@@ -220,7 +247,7 @@ function updateStructuredData() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "SøDera Solutions",
+    "name": "SøDera",
     "url": "https://soedera.eu",
     "logo": "https://i.imgur.com/r2HbYJj.png",
     "description": "Leading consultancy specializing in Reference Designation Systems (RDS), document management, BIM integration, and digital transformation.",

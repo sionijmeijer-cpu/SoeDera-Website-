@@ -2,111 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
-    <!-- Force canonical + social URL to www (prevents Shipper/other tooling from outputting apex canonical) -->
-    <script>
-      (function () {
-        var desiredHost = "www.soedera.eu";
-        var canonicalUrl =
-          "https://" + desiredHost + location.pathname + location.search;
-
-        // Canonical
-        var c = document.querySelector('link[rel="canonical"]');
-        if (c) c.setAttribute("href", canonicalUrl);
-        else {
-          c = document.createElement("link");
-          c.setAttribute("rel", "canonical");
-          c.setAttribute("href", canonicalUrl);
-          document.head.appendChild(c);
-        }
-
-        // OG URL
-        var og = document.querySelector('meta[property="og:url"]');
-        if (og) og.setAttribute("content", canonicalUrl);
-
-        // Twitter URL (optional but helpful)
-        var tw = document.querySelector('meta[name="twitter:url"]');
-        if (tw) tw.setAttribute("content", canonicalUrl);
-      })();
-    </script>
-
-    <!-- soedera.eu: DO NOT INDEX + redirect to www -->
-    <script>
-      (function () {
-        if (location.hostname === "soedera.eu") {
-          // Block indexing of apex domain
-          var meta = document.createElement("meta");
-          meta.name = "robots";
-          meta.content = "noindex, nofollow, noarchive";
-          document.head.appendChild(meta);
-
-          // Redirect to www (keep path/query/hash)
-          location.replace(
-            "https://www.soedera.eu" +
-              location.pathname +
-              location.search +
-              location.hash
-          );
-        }
-      })();
-    </script>
-
-    <!-- Favicons (local files in /public) -->
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-
+    <link rel="icon" href="https://i.imgur.com/b9aZOGM.png" type="image/png" />
+    <link rel="shortcut icon" href="https://i.imgur.com/b9aZOGM.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SøDera</title>
-
-    <meta
-      name="description"
-      content="Leading consultancy specializing in Reference Designation Systems (RDS), Document Management, BIM Integration, Asset Management, and Digital Transformation. ISO/IEC 81346 compliance experts serving global enterprises."
-    />
-    <meta
-      name="keywords"
-      content="resource management, operational excellence, RDS, Reference Designation Systems, document management, BIM integration, ISO 81346, IEC 81346, asset management, digital transformation, enterprise consulting, infrastructure management, operational efficiency"
-    />
+    <title>SøDera - Expert Resource Management & Operational Excellence</title>
+    <meta name="description" content="Leading consultancy specializing in Reference Designation Systems (RDS), Document Management, BIM Integration, Asset Management, and Digital Transformation. ISO/IEC 81346 compliance experts serving global enterprises." />
+    <meta name="keywords" content="resource management, operational excellence, RDS, Reference Designation Systems, document management, BIM integration, ISO 81346, IEC 81346, asset management, digital transformation, enterprise consulting, infrastructure management, operational efficiency" />
     <meta name="author" content="SøDera" />
-
-    <!-- Indexing allowed for www -->
     <meta name="robots" content="index, follow" />
-
     <meta name="language" content="English" />
     <meta name="revisit-after" content="7 days" />
     <meta name="geo.region" content="EU" />
     <meta name="geo.placename" content="Europe" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="SøDera" />
-    <meta
-      property="og:description"
-      content="Transform your operations with expert consulting in RDS, Document Management, BIM Integration, and Asset Management. ISO/IEC 81346 compliance specialists."
-    />
+    
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="SøDera - Expert Resource Management & Operational Excellence" />
+    <meta property="og:description" content="Transform your operations with expert consulting in RDS, Document Management, BIM Integration, and Asset Management. ISO/IEC 81346 compliance specialists." />
     <meta property="og:image" content="https://i.imgur.com/r2HbYJj.png" />
     <meta property="og:url" content="https://www.soedera.eu" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="SøDera" />
     <meta property="og:locale" content="en_US" />
-
-    <!-- Twitter -->
+    
+    <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SøDera" />
-    <meta
-      name="twitter:description"
-      content="Transform your operations with expert consulting in RDS, Document Management, BIM Integration, and Asset Management."
-    />
+    <meta name="twitter:title" content="SøDera - Expert Resource Management & Operational Excellence" />
+    <meta name="twitter:description" content="Transform your operations with expert consulting in RDS, Document Management, BIM Integration, and Asset Management." />
     <meta name="twitter:image" content="https://i.imgur.com/r2HbYJj.png" />
-    <meta name="twitter:url" content="https://www.soedera.eu" />
-
-    <!-- Theme / PWA -->
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.soedera.eu" />
+    
+    <!-- Additional Meta Tags -->
     <meta name="theme-color" content="#1f2937" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-    <!-- Structured Data (Schema.org) -->
+    
+    <!-- Structured Data (Schema.org) - Enhanced -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -122,11 +54,22 @@
       },
       "email": "info@soedera.eu",
       "founder": [
-        { "@type": "Person", "name": "Søren Christensen", "jobTitle": "Co-founder & CEO" },
-        { "@type": "Person", "name": "Sylvia Awoudu", "jobTitle": "Co-founder & COO" }
+        {
+          "@type": "Person",
+          "name": "Søren Christensen",
+          "jobTitle": "Co-founder & CEO"
+        },
+        {
+          "@type": "Person",
+          "name": "Sylvia Awoudu",
+          "jobTitle": "Co-founder & COO"
+        }
       ],
       "foundingDate": "2025",
-      "areaServed": { "@type": "Place", "name": "Worldwide" },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
       "serviceType": [
         "Reference Designation Systems (RDS)",
         "Document Management",
@@ -146,7 +89,7 @@
         "Digital Transformation"
       ],
       "sameAs": [
-        "https://www.linkedin.com/company/s%C3%B8dera/"
+        "https://www.linkedin.com/company/sødera/"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -156,19 +99,25 @@
       }
     }
     </script>
-
+    
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.soedera.eu" }
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.soedera.eu"
+        }
       ]
     }
     </script>
+    
+    <script type="module" src="/.shipper/monitor.js"></script>
   </head>
-
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

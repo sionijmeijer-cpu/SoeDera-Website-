@@ -35,7 +35,7 @@ function AboutContent() {
             About SøDera
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Empowering organizations through expert consulting and innovative solutions.
+            We take a practical, hands-on approach, working directly with teams, from Reference Designation Systems (IEC 81346) to document and asset management, to reduce complexity, improve compliance, and stay in control of their information.
           </p>
         </div>
 
@@ -139,15 +139,15 @@ function AboutContent() {
             <CardContent>
               <div className="prose prose-sm sm:prose-base max-w-none text-gray-700">
                 <p className="mb-4 leading-relaxed">
-                  SøDera Solutions was founded on the belief that organizations achieve their best results when they have 
+                  SøDera was founded on the belief that organizations achieve their best results when they have 
                   access to expert resources and proven methodologies. Our journey began with a simple observation: many 
                   organizations struggle not from lack of ambition or resources, but from challenges in coordination, 
                   documentation, and process management.
                 </p>
                 <p className="mb-4 leading-relaxed">
                   With backgrounds spanning engineering, information technology, and organizational development, our founding 
-                  team recognized an opportunity to bridge the gap between strategic vision and operational execution. We've 
-                  built SøDera to be more than just a consulting firm—we're a partner in transformation, combining deep 
+                  team recognized an opportunity to bridge the gap between strategic vision and operational execution. We have 
+                  built SøDera to be more than just a consulting firm—we are a partner in transformation, combining deep 
                   industry expertise with practical, implementable solutions.
                 </p>
                 <p className="leading-relaxed">

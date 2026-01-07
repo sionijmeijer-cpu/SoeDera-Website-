@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 sm:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <img src="https://i.imgur.com/r2HbYJj.png" alt="SøDera Solutions" className="h-20 w-auto sm:h-24 md:h-28" />
+              <img src="https://i.imgur.com/r2HbYJj.png" alt="SøDera" className="h-20 w-auto sm:h-24 md:h-28" />
             </div>
             <p className="text-gray-400 mb-4 text-sm sm:text-base">
               Connecting organisations with trained resources and experts to drive operational efficiency and success.
@@ -89,7 +89,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm">
           <p className="text-gray-400 mb-4 sm:mb-0">
-            © {new Date().getFullYear()} SøDera Solutions. All rights reserved.
+            © 2025 - {new Date().getFullYear()} SøDera. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors">

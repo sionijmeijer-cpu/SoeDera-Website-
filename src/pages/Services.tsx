@@ -64,7 +64,7 @@ function ServicesContent() {
             Our Services
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl opacity-90 leading-relaxed">
-            Comprehensive solutions to transform your organization and drive operational excellence
+            We take a practical, hands-on approach, working directly with teams, from Reference Designation Systems (IEC 81346) to document and asset management, to reduce complexity, improve compliance, and stay in control of their information.
           </p>
         </div>
       </section>

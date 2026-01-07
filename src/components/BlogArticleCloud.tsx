@@ -2,8 +2,10 @@ import { ArrowLeft, Calendar, Clock, User, Linkedin, Link as LinkIcon } from 'lu
 import { Link } from 'react-router-dom';
 
 export default function BlogArticleCloud() {
+  const articleUrl = 'https://www.soedera.eu/blog/cloud-information';
+
   const handleLinkedInShare = () => {
-    const url = encodeURIComponent(window.location.href);
+    const url = encodeURIComponent(articleUrl);
     window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
   };
 

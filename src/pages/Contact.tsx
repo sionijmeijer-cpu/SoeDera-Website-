@@ -1,9 +1,11 @@
-import { Mail, Phone, MapPin, Linkedin, Youtube } from 'lucide-react';
+import { Mail, MapPin, Linkedin, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { useState } from 'react';
+import { useAction } from 'convex/react';
+import { api } from '../../convex/_generated/api';
 
 export default function Contact() {
   return (
@@ -20,11 +22,31 @@ function ContactContent() {
     company: '',
     message: '',
   });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+  
+  const sendEmail = useAction(api.email.sendContactEmail);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your message! We will get back to you shortly.');
-    setFormData({ name: '', email: '', company: '', message: '' });
+    setStatus('sending');
+    setErrorMessage('');
+
+    try {
+      await sendEmail({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company || undefined,
+        message: formData.message,
+      });
+
+      setStatus('success');
+      setFormData({ name: '', email: '', company: '', message: '' });
+    } catch (error) {
+      console.error('Email error:', error);
+      setStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -32,6 +54,9 @@ function ContactContent() {
       ...prev,
       [e.target.name]: e.target.value,
     }));
+    if (status === 'error') {
+      setStatus('idle');
+    }
   };
 
   return (
@@ -56,77 +81,118 @@ function ContactContent() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Full Name *
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John Smith"
-                    className="w-full"
-                  />
+              {status === 'success' ? (
+                <div className="text-center py-8">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                    <CheckCircle className="h-8 w-8 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
+                  <p className="text-gray-600 mb-6">
+                    Thank you for contacting us. We'll get back to you within 24 hours.
+                  </p>
+                  <Button
+                    onClick={() => setStatus('idle')}
+                    variant="outline"
+                    className="border-orange-600 text-orange-600 hover:bg-orange-50"
+                  >
+                    Send Another Message
+                  </Button>
                 </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {status === 'error' && (
+                    <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
+                      <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-medium text-red-800">Failed to send message</p>
+                        <p className="text-sm text-red-600 mt-1">{errorMessage}</p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      Full Name *
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="John Smith"
+                      className="w-full"
+                      disabled={status === 'sending'}
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email Address *
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="john@example.com"
-                    className="w-full"
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      Email Address *
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="john@example.com"
+                      className="w-full"
+                      disabled={status === 'sending'}
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-                    Company
-                  </label>
-                  <Input
-                    id="company"
-                    name="company"
-                    type="text"
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="Your Company"
-                    className="w-full"
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+                      Company
+                    </label>
+                    <Input
+                      id="company"
+                      name="company"
+                      type="text"
+                      value={formData.company}
+                      onChange={handleChange}
+                      placeholder="Your Company"
+                      className="w-full"
+                      disabled={status === 'sending'}
+                    />
+                  </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Message *
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your project or inquiry..."
-                    rows={6}
-                    className="w-full"
-                  />
-                </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      Message *
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      required
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell us about your project or inquiry..."
+                      rows={6}
+                      className="w-full"
+                      disabled={status === 'sending'}
+                    />
+                  </div>
 
-                <Button
-                  type="submit"
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 text-base sm:text-lg rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
-                >
-                  Send Message
-                </Button>
-              </form>
+                  <Button
+                    type="submit"
+                    disabled={status === 'sending'}
+                    className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 text-base sm:text-lg rounded-lg shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-70"
+                  >
+                    {status === 'sending' ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                        Sending...
+                      </span>
+                    ) : (
+                      'Send Message'
+                    )}
+                  </Button>
+                </form>
+              )}
             </CardContent>
           </Card>
 

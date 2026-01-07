@@ -100,7 +100,7 @@ function BlogContent() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Hero Section */}
-      <section className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://i.imgur.com/8ocvstf.png)' }}>
+      <section className="relative w-full h-60 sm:h-80 md:h-96 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://i.imgur.com/8ocvstf.png)', backgroundSize: '80%' }}>
       </section>
 
       {/* Category Filter */}
