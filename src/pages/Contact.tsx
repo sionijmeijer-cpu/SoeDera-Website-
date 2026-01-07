@@ -4,8 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { useState } from 'react';
-import { useAction } from 'convex/react';
-import { api } from '../../convex/_generated/api';
 
 export default function Contact() {
   return (
@@ -24,8 +22,6 @@ function ContactContent() {
   });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
-  
-  const sendEmail = useAction(api.email.sendContactEmail);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,12 +29,20 @@ function ContactContent() {
     setErrorMessage('');
 
     try {
-      await sendEmail({
-        name: formData.name,
-        email: formData.email,
-        company: formData.company || undefined,
-        message: formData.message,
+      // Send email via API endpoint (works on Azure Static Web Apps)
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
 
       setStatus('success');
       setFormData({ name: '', email: '', company: '', message: '' });
@@ -83,33 +87,23 @@ function ContactContent() {
             <CardContent>
               {status === 'success' ? (
                 <div className="text-center py-8">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
-                    <CheckCircle className="h-8 w-8 text-green-600" />
-                  </div>
+                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
                   <p className="text-gray-600 mb-6">
-                    Thank you for contacting us. We'll get back to you within 24 hours.
+                    Thank you for reaching out. We'll get back to you within 24 hours.
                   </p>
-                  <Button
-                    onClick={() => setStatus('idle')}
-                    variant="outline"
-                    className="border-orange-600 text-orange-600 hover:bg-orange-50"
-                  >
+                  <Button onClick={() => setStatus('idle')} variant="outline">
                     Send Another Message
                   </Button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                   {status === 'error' && (
-                    <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-lg">
-                      <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="text-sm font-medium text-red-800">Failed to send message</p>
-                        <p className="text-sm text-red-600 mt-1">{errorMessage}</p>
-                      </div>
+                    <div className="flex items-center gap-2 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                      <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                      <p className="text-sm">{errorMessage}</p>
                     </div>
                   )}
-                  
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                       Full Name *
@@ -121,12 +115,11 @@ function ContactContent() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="John Smith"
+                      placeholder="Your name"
                       className="w-full"
                       disabled={status === 'sending'}
                     />
                   </div>
-
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                       Email Address *
@@ -138,12 +131,11 @@ function ContactContent() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="john@example.com"
+                      placeholder="your@email.com"
                       className="w-full"
                       disabled={status === 'sending'}
                     />
                   </div>
-
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
                       Company
@@ -154,12 +146,11 @@ function ContactContent() {
                       type="text"
                       value={formData.company}
                       onChange={handleChange}
-                      placeholder="Your Company"
+                      placeholder="Your company name"
                       className="w-full"
                       disabled={status === 'sending'}
                     />
                   </div>
-
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                       Message *
@@ -171,22 +162,21 @@ function ContactContent() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell us about your project or inquiry..."
-                      rows={6}
-                      className="w-full"
+                      rows={5}
+                      className="w-full resize-none"
                       disabled={status === 'sending'}
                     />
                   </div>
-
                   <Button
                     type="submit"
+                    className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3"
                     disabled={status === 'sending'}
-                    className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 text-base sm:text-lg rounded-lg shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-70"
                   >
                     {status === 'sending' ? (
-                      <span className="flex items-center justify-center gap-2">
-                        <Loader2 className="h-5 w-5 animate-spin" />
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                         Sending...
-                      </span>
+                      </>
                     ) : (
                       'Send Message'
                     )}
@@ -198,73 +188,87 @@ function ContactContent() {
 
           {/* Contact Information */}
           <div className="space-y-6 sm:space-y-8">
-            <Card className="border border-gray-200 shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-xl sm:text-2xl">Get in Touch</CardTitle>
-                <CardDescription className="text-sm sm:text-base">
-                  We're here to answer your questions and discuss your needs.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4 sm:space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-orange-100 p-3 rounded-lg flex-shrink-0">
-                    <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
+            <Card className="border border-gray-200">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-gray-700" />
+                    </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 text-base sm:text-lg mb-1">Email</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Email Us</h3>
+                    <p className="text-gray-600 mb-2 text-sm sm:text-base">
+                      For general inquiries and consultations
+                    </p>
                     <a
                       href="mailto:info@soedera.eu"
-                      className="text-sm sm:text-base text-blue-600 hover:text-blue-700 hover:underline break-all"
+                      className="text-blue-600 hover:text-blue-700 font-medium"
                     >
                       info@soedera.eu
                     </a>
                   </div>
                 </div>
+              </CardContent>
+            </Card>
 
-                <div className="flex items-start space-x-4">
-                  <div className="bg-orange-100 p-3 rounded-lg flex-shrink-0">
-                    <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-orange-600" />
+            <Card className="border border-gray-200">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-gray-700" />
+                    </div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 text-base sm:text-lg mb-1">Location</h3>
-                    <p className="text-sm sm:text-base text-gray-600">
-                      Braga, Portugal
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Location</h3>
+                    <p className="text-gray-600 text-sm sm:text-base">
+                      Serving clients across Europe and internationally
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-xl sm:text-2xl">Connect With Us</CardTitle>
-                <CardDescription className="text-sm sm:text-base">
-                  Follow us on LinkedIn for updates and insights.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex space-x-4">
-                  <a
-                    href="https://www.linkedin.com/company/106622271/admin/dashboard/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-blue-100 p-3 sm:p-4 rounded-lg hover:bg-blue-200 transition-colors duration-200"
-                  >
-                    <Linkedin className="h-6 w-6 sm:h-7 sm:w-7 text-blue-600" />
-                  </a>
+            <Card className="border border-gray-200">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                      <Linkedin className="w-6 h-6 text-gray-700" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Connect</h3>
+                    <p className="text-gray-600 mb-2 text-sm sm:text-base">
+                      Follow us for industry insights
+                    </p>
+                    <a
+                      href="https://www.linkedin.com/company/sødera/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-700 font-medium"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border border-gray-200 shadow-lg bg-gradient-to-br from-orange-50 to-blue-50">
+            {/* Business Hours */}
+            <Card className="border border-gray-200 bg-gray-50">
               <CardContent className="pt-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3 sm:mb-4">
-                  Business Hours
-                </h3>
-                <div className="space-y-2 text-sm sm:text-base text-gray-700">
-                  <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM</p>
-                  <p><strong>Saturday:</strong> 10:00 AM - 4:00 PM</p>
-                  <p><strong>Sunday:</strong> Closed</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Business Hours</h3>
+                <div className="space-y-2 text-gray-600 text-sm sm:text-base">
+                  <div className="flex justify-between">
+                    <span>Monday - Friday</span>
+                    <span className="font-medium">9:00 AM - 6:00 PM CET</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Saturday - Sunday</span>
+                    <span className="font-medium">Closed</span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
