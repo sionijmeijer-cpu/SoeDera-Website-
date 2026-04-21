@@ -31,6 +31,7 @@ const authors: Record<string, { name: string; title: string; bio: string; initia
   },
 };
 
+
 /* ─────────────────────────────────────────────
    ARTICLE DATABASE
    Key = the slug used in /blog/:id routes.
